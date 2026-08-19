@@ -67,8 +67,14 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Content Include="vista\Canje.aspx" />
+    <Content Include="vista\Centros.aspx" />
+    <Content Include="vista\Materiales.aspx" />
+    <Content Include="vista\Recompensas.aspx" />
+    <Content Include="vista\Registros.aspx" />
     <Content Include="vista\Tipo.aspx" />
     <Content Include="vista\Home.aspx" />
+    <Content Include="vista\Usuarios.aspx" />
     <Content Include="Web.config" />
   </ItemGroup>
   <ItemGroup>
@@ -77,6 +83,41 @@
     <Compile Include="modelo\cls_tipo.cs" />
     <Compile Include="modelo\DBconn.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="vista\Canje.aspx.cs">
+      <DependentUpon>Canje.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="vista\Canje.aspx.designer.cs">
+      <DependentUpon>Canje.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="vista\Centros.aspx.cs">
+      <DependentUpon>Centros.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="vista\Centros.aspx.designer.cs">
+      <DependentUpon>Centros.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="vista\Materiales.aspx.cs">
+      <DependentUpon>Materiales.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="vista\Materiales.aspx.designer.cs">
+      <DependentUpon>Materiales.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="vista\Recompensas.aspx.cs">
+      <DependentUpon>Recompensas.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="vista\Recompensas.aspx.designer.cs">
+      <DependentUpon>Recompensas.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="vista\Registros.aspx.cs">
+      <DependentUpon>Registros.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="vista\Registros.aspx.designer.cs">
+      <DependentUpon>Registros.aspx</DependentUpon>
+    </Compile>
     <Compile Include="vista\Tipo.aspx.cs">
       <DependentUpon>Tipo.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -90,6 +131,13 @@
     </Compile>
     <Compile Include="vista\Home.aspx.designer.cs">
       <DependentUpon>Home.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="vista\Usuarios.aspx.cs">
+      <DependentUpon>Usuarios.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="vista\Usuarios.aspx.designer.cs">
+      <DependentUpon>Usuarios.aspx</DependentUpon>
     </Compile>
   </ItemGroup>
   <ItemGroup>
