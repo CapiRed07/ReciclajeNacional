@@ -82,7 +82,7 @@ namespace WebApplication19.logica
                     else
                     {
                         cmd.Parameters.Add(new SqlParameter("@provincia", NuevoUsuario.provincia));
-                    })
+                    }
                     retorno = cmd.ExecuteNonQuery(); //Devuelve el numero de filas afectadas, en este caso debería ser 1 si se insertó correctamente
                 }
             }

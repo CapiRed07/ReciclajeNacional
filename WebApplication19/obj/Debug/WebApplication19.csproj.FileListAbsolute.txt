@@ -1,0 +1,2 @@
+C:\Users\Wong\source\repos\Programacion II\SistemaReciclaje\WebApplication19\obj\Debug\WebApplication19.csproj.AssemblyReference.cache
+C:\Users\Wong\source\repos\Programacion II\SistemaReciclaje\WebApplication19\obj\Debug\WebApplication19.csproj.CoreCompileInputs.cache

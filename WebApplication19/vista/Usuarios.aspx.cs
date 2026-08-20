@@ -11,14 +11,15 @@ namespace WebApplication19.vista
     {
         protected void Page_Load(object sender, EventArgs e)
         {
-
+            if (!IsPostBack)
+            {
+                CargarUsuarioLogueado();
+            }
         }
-
-        protected System.Void rptBoxes_ItemCommand(System.Object source, System.Web.UI.WebControls.RepeaterCommandEventArgs e)
+        private void CargarUsuarioLogueado()
         {
-            DataTable dt = GetDataFromDatabase();
-            MyRepeater.DataSource = dt;
-            MyRepeater.DataBind();
+            rptBoxes.DataSource = logica.UsuariosLogica.ObtenerUsuarioLogueado();
+            rptBoxes.DataBind();
         }
     }
 }
