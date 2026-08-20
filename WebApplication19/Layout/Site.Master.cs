@@ -11,7 +11,8 @@ namespace WebApplication19.Layout
         {
             // Se obtiene pagina actual
             string paginaActual = Request.Url.AbsolutePath.ToLower();
-            globalNav.Visible = MasterLogica.NavOculta(paginaActual);
+            // Devuelve false en paginas sin navegacion o no logueadas.
+            globalHeader.Visible = MasterLogica.NavOculta(paginaActual);
         }
     }
 }

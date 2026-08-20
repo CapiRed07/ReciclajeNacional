@@ -13,7 +13,7 @@
 </head>
 <body>
     <form id="form1" runat="server">
-        <header>
+        <header id="globalHeader" runat="server">
             <nav id="globalNav" runat="server">Navegación</nav>
             <ul>
                 <li><a href="~/vista/Home.aspx" runat="server">Inicio</a></li>
