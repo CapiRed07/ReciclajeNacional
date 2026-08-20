@@ -24,7 +24,15 @@
             <br />
             <asp:TextBox ID="txtPassword" runat="server" TextMode="Password"></asp:TextBox>
             <br />
-            <dropdownlist id="ddlProvincia" runat="server"></dropdownlist>
+            <asp:dropdownlist id="ddlProvincia" runat="server">
+                <asp:ListItem>San Jose</asp:ListItem>
+                <asp:ListItem>Cartago</asp:ListItem>
+                <asp:ListItem>Heredia</asp:ListItem>
+                <asp:ListItem>Alajuela</asp:ListItem>
+                <asp:ListItem>Guanacaste</asp:ListItem>
+                <asp:ListItem>Puntarenas</asp:ListItem>
+                <asp:ListItem>Limón</asp:ListItem>
+            </asp:dropdownlist>
             <br />
             <asp:Label ID="lblError" runat="server" ForeColor="Red" Font-Bold="true" Visible="false"></asp:Label>
             <br />
