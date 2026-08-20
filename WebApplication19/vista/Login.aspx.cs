@@ -42,6 +42,7 @@ namespace WebApplication19.vista
                     Session["UsuarioNombre"] = nuevoLogin.nombre;
                     Session["UsuarioRol"] = nuevoLogin.rol;
                     Session["UsuarioCorreo"] = nuevoLogin.correo;
+                    Session["EstaLogueado"] = true;
                     // Login exitoso
                     Response.Redirect("Home.aspx");
                 }
