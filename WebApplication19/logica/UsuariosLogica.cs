@@ -79,19 +79,19 @@ namespace WebApplication19.logica
                         CommandType = CommandType.StoredProcedure
                     };
                     // Agregamos los parámetros del usuario al comando
-                    cmd.Parameters.Add(new SqlParameter("@nombre", NuevoUsuario.nombre));
-                    cmd.Parameters.Add(new SqlParameter("@correo", NuevoUsuario.correo));
-                    cmd.Parameters.Add(new SqlParameter("@pwd", NuevoUsuario.pwd));
-                    cmd.Parameters.Add(new SqlParameter("@rol", NuevoUsuario.rol));
+                    cmd.Parameters.Add(new SqlParameter("@Nombre", NuevoUsuario.nombre));
+                    cmd.Parameters.Add(new SqlParameter("@Correo", NuevoUsuario.correo));
+                    cmd.Parameters.Add(new SqlParameter("@Pwd", NuevoUsuario.pwd));
+                    cmd.Parameters.Add(new SqlParameter("@Rol", NuevoUsuario.rol));
 
                     // Validacion para la provincia, si es null o vacía para usuarios de rol "admin", se pasa como DBNull
                     if (NuevoUsuario.rol == "admin" || string.IsNullOrEmpty(NuevoUsuario.provincia))
                     {
-                        cmd.Parameters.Add(new SqlParameter("@provincia", DBNull.Value));
+                        cmd.Parameters.Add(new SqlParameter("@Provincia", DBNull.Value));
                     }
                     else
                     {
-                        cmd.Parameters.Add(new SqlParameter("@provincia", NuevoUsuario.provincia));
+                        cmd.Parameters.Add(new SqlParameter("@Provincia", NuevoUsuario.provincia));
                     }
                     retorno = cmd.ExecuteNonQuery(); //Devuelve el numero de filas afectadas, en este caso debería ser 1 si se insertó correctamente
                 }
