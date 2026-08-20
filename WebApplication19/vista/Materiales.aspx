@@ -6,7 +6,7 @@
 
 <asp:Content ID="Content2" ContentPlaceHolderID="MainContent" runat="server">
     <div>
-
+        <asp:GridView ID="GridMateriales" runat="server"></asp:GridView>
     </div>
 </asp:Content>
 

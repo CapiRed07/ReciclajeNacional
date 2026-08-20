@@ -110,11 +110,13 @@
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
     <Compile Include="logica\MasterLogica.cs" />
+    <Compile Include="logica\MaterialesLogica.cs" />
     <Compile Include="logica\UsuariosLogica.cs" />
     <Compile Include="modelo\clsUsuarios.cs" />
     <Compile Include="modelo\cls_reciclaje.cs" />
     <Compile Include="modelo\cls_tipo.cs" />
     <Compile Include="modelo\DBconn.cs" />
+    <Compile Include="modelo\MaterialesModelo.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="vista\Canje.aspx.cs">
       <DependentUpon>Canje.aspx</DependentUpon>
