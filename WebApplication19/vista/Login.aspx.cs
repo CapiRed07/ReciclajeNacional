@@ -17,9 +17,12 @@ namespace WebApplication19.vista
 
         protected void btnLogin_Click(object sender, EventArgs e)
         {
+            // Se limpia mensaje anterior
+            lblError.Visible = false;
+
             // Crear una instancia de clsUsuarios con los datos ingresados por el usuario
             clsUsuarios nuevoLogin = new clsUsuarios();
-            nuevoLogin.correo = txtCorreo.Text;
+            nuevoLogin.correo = txtCorreo.Text.Trim();
             nuevoLogin.pwd = txtPassword.Text;
 
             try
@@ -34,6 +37,11 @@ namespace WebApplication19.vista
                 // Se le pasa el objeto nuevoLogin a la función ValidarLogin para verificar si el login es correcto
                 if (UsuariosLogica.ValidarLogin(nuevoLogin))
                 {
+                    // Se guardan los datos de la sesion
+                    Session["UsuarioID"] = nuevoLogin.id;
+                    Session["UsuarioNombre"] = nuevoLogin.nombre;
+                    Session["UsuarioRol"] = nuevoLogin.rol;
+                    Session["UsuarioCorreo"] = nuevoLogin.correo;
                     // Login exitoso
                     Response.Redirect("Home.aspx");
                 }
