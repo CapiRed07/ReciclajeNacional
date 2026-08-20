@@ -22,7 +22,7 @@ namespace WebApplication19.vista
             clsUsuarios nuevoRegistro = new clsUsuarios();
             nuevoRegistro.nombre = txtNombre.Text;
             nuevoRegistro.correo = txtCorreo.Text;
-            nuevoRegistro.provincia = ddlProvincia.SelectedValue;
+            nuevoRegistro.provincia = ddlProvincia.SelectedItem.Text;
             nuevoRegistro.pwd = txtPassword.Text;
 
             // Llamada al método para registrar el usuario
