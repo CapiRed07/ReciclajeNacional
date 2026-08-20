@@ -111,39 +111,57 @@ namespace WebApplication19.logica
         // Metodo para validar el login de un usuario
         public static bool ValidarLogin(clsUsuarios log)
         {
-            // Se cifra la contraseña antes de enviarla a la base de datos para la validación
-            // Utilizando modelo SHA-256 para cifrar la contraseña
-            log.pwd = BCrypt.Net.BCrypt.HashPassword(log.pwd);
-
             // Se utiliza un bloque try-catch para manejar posibles excepciones al interactuar con la base de datos
             try
             {
+                string storedHash = null;
+
                 using (SqlConnection Conn = modelo.DBconn.obtenerConexion())
                 {
-                    // Se llama al stored procedure para validar el login
+                    // Stored procedure busca por @correo y devuelve el Hash, Id, Nombre y Rol
                     SqlCommand cmd = new SqlCommand("ValidarLogin", Conn)
                     {
                         CommandType = CommandType.StoredProcedure
                     };
 
-                    // Se agregan los parámetros de correo y contraseña al comando
-                    cmd.Parameters.Add(new SqlParameter("@correo", log.correo));
-                    cmd.Parameters.Add(new SqlParameter("@pwd", log.pwd));
+                    // Se agrega únicamente el parámetro de correo al comando
+                    cmd.Parameters.Add(new SqlParameter("@Correo", log.correo));
 
                     using (SqlDataReader reader = cmd.ExecuteReader())
                     {
                         if (reader.Read())
                         {
+                            // Asume que la columna 3 contiene el hash de BCrypt guardado
+                            storedHash = reader.GetString(3);
+
+                            // Guardamos los datos temporalmente
                             log.id = reader.GetInt32(0);
                             log.nombre = reader.GetString(1);
                             log.rol = reader.GetString(2);
-                            return true;
                         }
                         else
                         {
+                            // El correo no existe en la base de datos
                             return false;
                         }
                     }
+                }
+
+                // Validacion de BCrypt
+                // Se compara la contraseña en texto plano con el hash extraído de la base de datos
+                bool esValido = BCrypt.Net.BCrypt.Verify(log.pwd, storedHash);
+
+                if (esValido)
+                {
+                    return true;
+                }
+                else
+                {
+                    // Si la contraseña no coincide, limpiamos los datos del objeto por seguridad
+                    log.id = 0;
+                    log.nombre = null;
+                    log.rol = null;
+                    return false;
                 }
             }
             catch (SqlException ex)
@@ -152,6 +170,7 @@ namespace WebApplication19.logica
                 throw new Exception("Error en la base de datos al validar el login.", ex);
             }
         }
+
 
     }
 }
