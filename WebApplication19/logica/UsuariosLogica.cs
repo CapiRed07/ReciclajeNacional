@@ -2,7 +2,10 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
-
+using System.Data;
+using System.Data.SqlClient;
+using WebApplication19.modelo;
+using WebApplication19.logica;
 namespace WebApplication19.logica
 {
     public class UsuariosLogica
@@ -35,7 +38,7 @@ namespace WebApplication19.logica
                                 id = reader.GetInt32(0),
                                 nombre = reader.GetString(1),
                                 correo = reader.GetString(2),
-                                provincia = reader.IsDbNull(3) ? string.Empty : reader.GetString(3),
+                                provincia = reader.IsDBNull(3) ? string.Empty : reader.GetString(3),
                                 puntos = reader.GetInt32(4),
                                 rol = reader.GetString(5)
                             };
@@ -50,10 +53,13 @@ namespace WebApplication19.logica
             }
             finally
             {
-                Conn.Close();
-                Conn.Dispose();
-                return new clsUsuarios();
+                if (Conn != null)
+                {
+                    Conn.Close();
+                    Conn.Dispose();
+                }
             }
+            return usuario;
         }
         public static int AgregarUsuario(clsUsuarios NuevoUsuario)
         {

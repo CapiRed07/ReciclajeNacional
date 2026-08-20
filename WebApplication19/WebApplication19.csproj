@@ -84,7 +84,6 @@
     </Compile>
     <Compile Include="logica\UsuariosLogica.cs" />
     <Compile Include="modelo\clsUsuarios.cs" />
-    <Compile Include="Infraestructura\SecurePage.cs" />
     <Compile Include="modelo\cls_reciclaje.cs" />
     <Compile Include="modelo\cls_tipo.cs" />
     <Compile Include="modelo\DBconn.cs" />
@@ -140,6 +139,7 @@
     </Compile>
     <Compile Include="vista\Usuarios.aspx.cs">
       <DependentUpon>Usuarios.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
     </Compile>
     <Compile Include="vista\Usuarios.aspx.designer.cs">
       <DependentUpon>Usuarios.aspx</DependentUpon>
