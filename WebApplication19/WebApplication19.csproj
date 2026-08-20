@@ -69,6 +69,7 @@
   <ItemGroup>
     <Content Include="vista\Canje.aspx" />
     <Content Include="vista\Centros.aspx" />
+    <Content Include="vista\Login.aspx" />
     <Content Include="vista\Materiales.aspx" />
     <Content Include="vista\Recompensas.aspx" />
     <Content Include="vista\Registros.aspx" />
@@ -101,6 +102,13 @@
     </Compile>
     <Compile Include="vista\Centros.aspx.designer.cs">
       <DependentUpon>Centros.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="vista\Login.aspx.cs">
+      <DependentUpon>Login.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="vista\Login.aspx.designer.cs">
+      <DependentUpon>Login.aspx</DependentUpon>
     </Compile>
     <Compile Include="vista\Materiales.aspx.cs">
       <DependentUpon>Materiales.aspx</DependentUpon>
