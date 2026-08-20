@@ -1,0 +1,29 @@
+﻿<%@ Master Language="C#" AutoEventWireup="true" Inherits="System.Web.UI.MasterPage" %>
+
+<!DOCTYPE html>
+<html>
+<head runat="server">
+    <title>My Web Forms App</title>
+    <!-- CSS global -->
+    <link href="~/CSS/Main.css" rel="stylesheet" type="text/css" runat="server"/>
+    
+    <asp:ContentPlaceHolder ID="head" runat="server">
+        <!-- Optional page-specific CSS or JS tags can be injected here -->
+    </asp:ContentPlaceHolder>
+</head>
+<body>
+    <form id="form1" runat="server">
+        <header>
+            <nav>Global Navigation Bar</nav>
+        </header>
+
+        <main>
+            <!-- Paginas aspx hijos inyectan aca para recibir la herencia -->
+            <asp:ContentPlaceHolder ID="MainContent" runat="server">
+            </asp:ContentPlaceHolder>
+        </main>
+
+        <footer>Global Footer</footer>
+    </form>
+</body>
+</html>
