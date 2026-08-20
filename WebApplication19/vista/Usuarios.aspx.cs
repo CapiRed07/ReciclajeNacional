@@ -16,7 +16,9 @@ namespace WebApplication19.vista
 
         protected System.Void rptBoxes_ItemCommand(System.Object source, System.Web.UI.WebControls.RepeaterCommandEventArgs e)
         {
-
+            DataTable dt = GetDataFromDatabase();
+            MyRepeater.DataSource = dt;
+            MyRepeater.DataBind();
         }
     }
 }
