@@ -12,6 +12,8 @@
             <h1>Usuario</h1>
         </div>
 <div>
+    
+    <asp:Label ID="lblNombreUsuario" runat="server" Text="" ForeColor="Red"></asp:Label>
     <asp:Repeater ID="rptBoxes" runat="server">
         <HeaderTemplate>
             <!-- Abre el contenedor principal una sola vez -->
