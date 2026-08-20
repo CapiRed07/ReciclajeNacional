@@ -28,6 +28,7 @@ namespace WebApplication19.vista
                 if (string.IsNullOrWhiteSpace(nuevoLogin.correo) || string.IsNullOrWhiteSpace(nuevoLogin.pwd))
                 {
                     lblError.Text = "Por favor, complete todos los campos.";
+                    lblError.Visible = true;
                     return;
                 }
                 // Se le pasa el objeto nuevoLogin a la función ValidarLogin para verificar si el login es correcto
@@ -40,6 +41,7 @@ namespace WebApplication19.vista
                 {
                     // Login fallido
                     lblError.Text = "Correo o contraseña incorrectos.";
+                    lblError.Visible = true;
                 }
 
             }
@@ -47,6 +49,7 @@ namespace WebApplication19.vista
             {
                 // Manejo de errores
                 lblError.Text = "Ocurrió un error durante el inicio de sesión. Por favor, inténtelo de nuevo más tarde.";
+                lblError.Visible = true;
             }
         }
     }
