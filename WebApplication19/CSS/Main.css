@@ -1,0 +1,317 @@
+﻿/* Pagina general */
+
+body {
+    margin: 0;
+    font-family: Arial, sans-serif;
+    background-color: #121212;
+    color: white;
+}
+
+
+/* Menu general */
+
+ul {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    overflow: hidden;
+    background-color: #1f1f1f;
+    text-align: center;
+}
+
+    ul li {
+        display: inline-block;
+    }
+
+        ul li a {
+            display: block;
+            color: white;
+            padding: 16px 20px;
+            text-decoration: none;
+        }
+
+            ul li a:hover {
+                background-color: #333;
+            }
+
+            ul li a.active {
+                background-color: #0078d4;
+            }
+
+
+/* Titulos */
+
+h1 {
+    text-align: center;
+    margin-top: 30px;
+}
+
+
+/* Formularios */
+
+form > div {
+    text-align: center;
+}
+
+
+/* Tablas */
+
+table {
+    margin: 20px auto;
+    border-collapse: collapse;
+    background-color: #1f1f1f;
+    color: white;
+}
+
+    table th,
+    table td {
+        padding: 10px 15px;
+        border: 1px solid #444;
+    }
+
+
+/* Campos de texto */
+
+input[type="text"],
+input[type="date"],
+input[type="password"],
+select {
+    width: 300px;
+    padding: 8px;
+    margin: 5px 0 12px 0;
+    box-sizing: border-box;
+    background-color: #2b2b2b;
+    color: white;
+    border: 1px solid #555;
+    border-radius: 4px;
+}
+
+input[type="submit"] {
+    padding: 10px 18px;
+    margin: 10px 4px;
+    cursor: pointer;
+    width: 155px;
+}
+
+
+/* Login y registro */
+
+.login-container {
+    width: 350px;
+    margin: 80px auto;
+    padding: 30px;
+    background-color: #1f1f1f;
+    color: white;
+    border-radius: 10px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.5);
+}
+
+    .login-container h1 {
+        margin-top: 0;
+        color: white;
+    }
+
+    .login-container h2 {
+        color: white;
+        margin-bottom: 25px;
+    }
+
+    .login-container input[type="text"],
+    .login-container input[type="password"] {
+        width: 100%;
+        box-sizing: border-box;
+    }
+
+
+/* Botones de login y registro */
+
+.btn-login,
+.btn-volver {
+    display: inline-block;
+    width: 180px;
+    padding: 10px 20px;
+    margin-top: 10px;
+    box-sizing: border-box;
+    text-align: center;
+    border-radius: 6px;
+    font-weight: bold;
+    text-decoration: none;
+}
+
+.btn-login {
+    background-color: #0078d4;
+    color: white;
+    border: none;
+    cursor: pointer;
+}
+
+    .btn-login:hover {
+        background-color: #005a9e;
+    }
+
+.btn-volver {
+    background-color: #6c757d;
+    color: white;
+}
+
+    .btn-volver:hover {
+        background-color: #545b62;
+    }
+
+
+/* Boton de registro */
+
+.btn-registro {
+    display: inline-block;
+    width: 180px;
+    padding: 10px 20px;
+    margin-top: 10px;
+    box-sizing: border-box;
+    background-color: #0078d4;
+    color: white;
+    text-decoration: none;
+    border-radius: 6px;
+    font-weight: bold;
+    text-align: center;
+}
+
+    .btn-registro:hover {
+        background-color: #005a9e;
+    }
+
+.registro-login {
+    margin-top: 15px;
+    text-align: center;
+}
+
+
+/* Pagina principal */
+
+.home {
+    width: 90%;
+    max-width: 1100px;
+    margin: 0 auto;
+    text-align: center;
+    position: relative;
+}
+
+.top-home {
+    padding-top: 35px;
+}
+
+    .top-home h1 {
+        margin: 0;
+        font-size: 40px;
+        color: white;
+    }
+
+.home h2 {
+    margin-top: 35px;
+    font-size: 28px;
+    color: white;
+}
+
+.texto-home {
+    color: #dddddd;
+    font-size: 17px;
+    margin-bottom: 35px;
+}
+
+
+/* Boton de inicio */
+
+.btn-home {
+    position: fixed;
+    top: 20px;
+    left: 25px;
+    width: 120px;
+    padding: 10px 15px;
+    box-sizing: border-box;
+    background-color: #0078d4;
+    color: white;
+    text-decoration: none;
+    border-radius: 6px;
+    font-weight: bold;
+    text-align: center;
+    z-index: 1000;
+}
+
+    .btn-home:hover {
+        background-color: #005a9e;
+    }
+
+
+/* Cerrar sesion */
+
+.btn-cerrar {
+    position: fixed;
+    top: 20px;
+    right: 25px;
+    width: 160px;
+    padding: 10px 15px;
+    box-sizing: border-box;
+    background-color: #6c757d;
+    color: white;
+    text-decoration: none;
+    border-radius: 6px;
+    font-weight: bold;
+    text-align: center;
+    z-index: 1000;
+}
+
+    .btn-cerrar:hover {
+        background-color: #545b62;
+    }
+
+
+/* Tarjetas del Home */
+
+.cards {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 25px;
+    margin-top: 25px;
+}
+
+.menu-card {
+    background-color: #1f1f1f;
+    border: 1px solid #444;
+    border-radius: 12px;
+    padding: 25px 20px;
+    min-height: 220px;
+    box-sizing: border-box;
+    text-decoration: none;
+    color: white;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.35);
+    transition: 0.2s;
+}
+
+    .menu-card:hover {
+        transform: translateY(-6px);
+        border-color: #0078d4;
+        box-shadow: 0 8px 18px rgba(0, 120, 212, 0.25);
+        background-color: #252525;
+    }
+
+
+/* Imagenes de las tarjetas */
+
+.card-image {
+    width: 110px;
+    height: 110px;
+    object-fit: contain;
+    display: block;
+    margin: 0 auto 15px auto;
+}
+
+.menu-card h3 {
+    margin: 5px 0 10px 0;
+    font-size: 23px;
+    color: white;
+}
+
+.menu-card p {
+    margin: 0;
+    font-size: 15px;
+    color: #cccccc;
+}
