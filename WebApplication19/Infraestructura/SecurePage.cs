@@ -15,9 +15,9 @@ namespace WebApplication19.logica
         {
             get
             {
-                if (Session["UserID"] != null)
+                if (Session["UsuarioID"] != null)
                 {
-                    return Convert.ToInt32(Session["UserID"]);
+                    return Convert.ToInt32(Session["UsuarioID"]);
                 }
                 return 0; //Si no hay ID, retorna 0
             }
@@ -34,8 +34,8 @@ namespace WebApplication19.logica
             Response.Expires = -1;
 
             if (HttpContext.Current.Session == null ||
-                Session["IsLoggedIn"] == null ||
-                !(bool)Session["IsLoggedIn"])
+                Session["EstaLogueado"] == null ||
+                !(bool)Session["EstaLogueado"])
             {
                 Response.Clear();
                 Response.Redirect("~/Login.aspx", true);
@@ -46,7 +46,7 @@ namespace WebApplication19.logica
             if (!string.IsNullOrEmpty(RolRequerido))
             {
                 //Extrae el rol del usuario de la sesión
-                string rolUsuario = Session["UserRol"] != null ? Session["UserRol"].ToString() : string.Empty;
+                string rolUsuario = Session["UsuarioRol"] != null ? Session["UsuarioRol"].ToString() : string.Empty;
 
                 //Verifica si el rol del usuario coincide con el rol requerido
                 if (rolUsuario != RolRequerido)
