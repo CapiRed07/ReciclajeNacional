@@ -61,10 +61,13 @@ namespace WebApplication19.logica
             }
             return usuario;
         }
+        // Metodo para agregar un nuevo usuario a la base de datos
         public static int AgregarUsuario(clsUsuarios NuevoUsuario)
         {
             int retorno = 0;
             SqlConnection Conn = new SqlConnection();
+            // Se cifra la contraseña antes de enviarla a la base de datos para el registro
+            NuevoUsuario.pwd = SecurityHelper.ConvertirSHA256(NuevoUsuario.pwd);
             try
             {
                 using (Conn = modelo.DBconn.obtenerConexion())
