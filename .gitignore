@@ -1,4 +1,13 @@
-.vs/
-# Ignore build outputs
-[Oo]bj/
+## Visual Studio Build Outputs
 [Bb]in/
+[Oo]bj/
+
+## Visual Studio User Files
+*.suo
+*.user
+*.userosscache
+*.sln.docstates
+
+## Visual Studio 2015/2017/2019/2022 Cache Folders
+.vs/
+
