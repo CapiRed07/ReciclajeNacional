@@ -79,6 +79,8 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="logica\logica_tipo.cs" />
+    <Compile Include="logica\UsuariosLogica.cs" />
+    <Compile Include="modelo\clsUsuarios.cs" />
     <Compile Include="modelo\cls_reciclaje.cs" />
     <Compile Include="modelo\cls_tipo.cs" />
     <Compile Include="modelo\DBconn.cs" />
