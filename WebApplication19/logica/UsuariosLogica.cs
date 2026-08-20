@@ -37,8 +37,7 @@ namespace WebApplication19.logica
                                 correo = reader.GetString(2),
                                 provincia = reader.IsDbNull(3) ? string.Empty : reader.GetString(3),
                                 puntos = reader.GetInt32(4),
-                                pwd = reader.GetString(5),
-                                rol = reader.GetString(6)
+                                rol = reader.GetString(5)
                             };
                         }
                     }
