@@ -4,6 +4,7 @@ using System.Linq;
 using System.Web;
 using System.Web.UI;
 using System.Web.UI.WebControls;
+using WebApplication19.logica;
 
 namespace WebApplication19.vista
 {
@@ -11,7 +12,12 @@ namespace WebApplication19.vista
     {
         protected void Page_Load(object sender, EventArgs e)
         {
-
+            CargarMateriales();
+        }
+        private void CargarMateriales()
+        {
+            GridMateriales.DataSource = MaterialesLogica.ObtenerMateriales();
+            GridMateriales.DataBind();
         }
     }
 }
