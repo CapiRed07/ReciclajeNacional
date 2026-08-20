@@ -15,9 +15,9 @@ namespace WebApplication19.logica
         {
             get
             {
-                if (Session["idusuario"] != null)
+                if (Session["UserID"] != null)
                 {
-                    return Convert.ToInt32(Session["idusuario"]);
+                    return Convert.ToInt32(Session["UserID"]);
                 }
                 return 0; //Si no hay ID, retorna 0
             }
@@ -46,7 +46,7 @@ namespace WebApplication19.logica
             if (!string.IsNullOrEmpty(RolRequerido))
             {
                 //Extrae el rol del usuario de la sesión
-                string rolUsuario = Session["rol"] != null ? Session["rol"].ToString() : string.Empty;
+                string rolUsuario = Session["UserRol"] != null ? Session["UserRol"].ToString() : string.Empty;
 
                 //Verifica si el rol del usuario coincide con el rol requerido
                 if (rolUsuario != RolRequerido)
