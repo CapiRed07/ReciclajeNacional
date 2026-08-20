@@ -22,13 +22,16 @@ namespace WebApplication19.vista
 			nuevoLogin.correo = txtCorreo.Text;
 			nuevoLogin.pwd = txtPassword.Text;
 
-            // Crear una instancia de UsuariosLogica para validar el login
-            UsuariosLogica nuevaValidacion = new UsuariosLogica();
-
 			try
 			{
+                // Manejo de campos vacios
+                if (string.IsNullOrWhiteSpace(nuevoLogin.correo) || string.IsNullOrWhiteSpace(nuevoLogin.pwd))
+                {
+                    lblError.Text = "Por favor, complete todos los campos.";
+                    return;
+                }
                 // Se le pasa el objeto nuevoLogin a la función ValidarLogin para verificar si el login es correcto
-                if (nuevaValidacion.ValidarLogin(nuevoLogin))
+                if (UsuariosLogica.ValidarLogin(nuevoLogin))
                 {
                     // Login exitoso
                     Response.Redirect("Home.aspx");
