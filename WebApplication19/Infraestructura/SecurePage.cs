@@ -5,7 +5,7 @@ using System.Web;
 
 namespace WebApplication19.logica
 {
-    public class SecurePage
+    public class SecurePage : System.Web.UI.Page
     {
         //Propiedad que permite a cada página definir quién tiene acceso a ella.
         //Por defecto, cualquier usuario logueado puede acceder (""), pero se puede personalizar en cada página que herede de SecurePage.
