@@ -12,7 +12,11 @@ namespace WebApplication19.vista
     {
         protected void Page_Load(object sender, EventArgs e)
         {
-
+            if (!IsPostBack)
+            {
+                Session.Clear();
+                Session.Abandon();
+            }
         }
 
         protected void btnLogin_Click(object sender, EventArgs e)
