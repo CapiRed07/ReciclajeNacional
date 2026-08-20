@@ -84,6 +84,7 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="CSS\Main.css" />
+    <Content Include="CSS\Usuarios.css" />
     <Content Include="vista\Canje.aspx" />
     <Content Include="vista\Centros.aspx" />
     <Content Include="vista\Login.aspx" />
