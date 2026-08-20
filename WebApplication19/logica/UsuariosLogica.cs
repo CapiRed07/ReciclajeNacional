@@ -27,7 +27,7 @@ namespace WebApplication19.logica
                         CommandType = CommandType.StoredProcedure
                     };
                     // Agregamos el parámetro del ID del usuario al comando
-                    cmd.Parameters.Add(new SqlParameter("@idusuario", idUsuarioLogueado));
+                    cmd.Parameters.Add(new SqlParameter("@UsuarioID", idUsuarioLogueado));
 
                     using (SqlDataReader reader = cmd.ExecuteReader())
                     {
