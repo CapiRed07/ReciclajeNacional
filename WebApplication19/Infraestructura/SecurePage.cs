@@ -11,6 +11,18 @@ namespace WebApplication19.logica
         //Por defecto, cualquier usuario logueado puede acceder (""), pero se puede personalizar en cada página que herede de SecurePage.
         public string RolRequerido { get; set; } = ""; // Por defecto, cualquier usuario logueado puede acceder.
 
+        public int UsuarioIdLogueado
+        {
+            get
+            {
+                if (Session["idusuario"] != null)
+                {
+                    return Convert.ToInt32(Session["idusuario"]);
+                }
+                return 0; //Si no hay ID, retorna 0
+            }
+        }
+
         //Esta clase se encarga de ser un checkeo general que las demas páginas pueden heredar para verificar si el usuario está logueado y tiene permisos para ver la página.
         protected override void OnInit(EventArgs e)
         {
@@ -34,7 +46,7 @@ namespace WebApplication19.logica
             if (!string.IsNullOrEmpty(RolRequerido))
             {
                 //Extrae el rol del usuario de la sesión
-                string rolUsuario = Session["Rol"] != null ? Session["Rol"].ToString() : string.Empty;
+                string rolUsuario = Session["rol"] != null ? Session["rol"].ToString() : string.Empty;
 
                 //Verifica si el rol del usuario coincide con el rol requerido
                 if (rolUsuario != RolRequerido)
