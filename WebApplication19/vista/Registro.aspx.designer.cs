@@ -87,13 +87,13 @@ namespace WebApplication19.vista
         protected global::System.Web.UI.HtmlControls.HtmlGenericControl ddlProvincia;
 
         /// <summary>
-        /// lblMessage control.
+        /// lblError control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label lblMessage;
+        protected global::System.Web.UI.WebControls.Label lblError;
 
         /// <summary>
         /// btnRegistrar control.

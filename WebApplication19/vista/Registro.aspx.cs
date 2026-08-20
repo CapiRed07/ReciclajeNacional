@@ -30,20 +30,20 @@ namespace WebApplication19.vista
             {
                 if(string.IsNullOrWhiteSpace(nuevoRegistro.nombre) || string.IsNullOrWhiteSpace(nuevoRegistro.correo) || string.IsNullOrWhiteSpace(nuevoRegistro.pwd))
                 {
-                    lblMensaje.Text = "Por favor, complete todos los campos obligatorios.";
-                    lblMessage.Visible = true;
+                    lblError.Text = "Por favor, complete todos los campos obligatorios.";
+                    lblError.Visible = true;
                     return;
                 }
                 UsuariosLogica.AgregarUsuario(nuevoRegistro);
-                lblMensaje.Text = "Usuario registrado correctamente.";
-                lblMessage.ForeColor = System.Drawing.Color.Green;
-                lblMessage.Visible = true;
+                lblError.Text = "Usuario registrado correctamente.";
+                lblError.ForeColor = System.Drawing.Color.Green;
+                lblError.Visible = true;
 
             }
             catch (Exception ex)
             {
-                lblMensaje.Text = "Error al registrar el usuario: " + ex.Message;
-                lblMessage.Visible = true;
+                lblError.Text = "Error al registrar el usuario: " + ex.Message;
+                lblError.Visible = true;
             }
         }
     }

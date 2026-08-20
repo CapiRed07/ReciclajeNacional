@@ -26,7 +26,7 @@
             <br />
             <dropdownlist id="ddlProvincia" runat="server"></dropdownlist>
             <br />
-            <asp:Label ID="lblMessage" runat="server" ForeColor="Red" Font-Bold="true" Visible="false"></asp:Label>
+            <asp:Label ID="lblError" runat="server" ForeColor="Red" Font-Bold="true" Visible="false"></asp:Label>
             <br />
             <asp:Button ID="btnRegistrar" runat="server" Text="Registrarse" OnClick="btnRegistrar_Click" />
         </div>
