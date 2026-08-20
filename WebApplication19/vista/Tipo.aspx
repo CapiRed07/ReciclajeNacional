@@ -1,14 +1,12 @@
-﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="Tipo.aspx.cs" Inherits="WebApplication19.vista.Tipo" %>
+﻿<%@ Page Language="C#" MasterPageFile="~/Layout/Site.Master" AutoEventWireup="true" CodeBehind="Tipo.aspx.cs" Inherits="WebApplication19.vista.Tipo" %>
 
 <!DOCTYPE html>
 
-<html xmlns="http://www.w3.org/1999/xhtml">
-<head runat="server">
-<meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
-    <title></title>
-</head>
-<body>
-    <form id="form1" runat="server">
+<asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
+    <!-- Se puede dejar vacio sino se necesita css o javascript unicos -->
+</asp:Content>
+
+<asp:Content ID="Content2" ContentPlaceHolderID="MainContent" runat="server">
         <div>
             <label1> 
             <br />
@@ -28,9 +26,5 @@
             <br />
             <asp:Button ID="bagregar" runat="server" Text="Agregar" OnClick="bagregar_Click" />
             <asp:Button ID="bborrar" runat="server" Text="Borrar" OnClick="bborrar_Click" />
-
-
         </div>
-    </form>
-</body>
-</html>
+</asp:Content>
