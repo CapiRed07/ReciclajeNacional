@@ -7,5 +7,18 @@ namespace WebApplication19.modelo
 {
     public class clsUsuarios
     {
+        public int id { get; set; }
+
+        public string name { get; set; }
+
+        public string correo { get; set; }
+
+        public string provincia { get; set; }
+
+        public int puntos { get; set; }
+
+        public string pwd { get; set; }
+
+        public string rol { get; set; }
     }
 }
