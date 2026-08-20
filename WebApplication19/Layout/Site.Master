@@ -14,7 +14,16 @@
 <body>
     <form id="form1" runat="server">
         <header>
-            <nav>Global Navigation Bar</nav>
+            <nav id="globalNav" runat="server">Navegación</nav>
+            <ul>
+                <li><a href="~/vista/Home.aspx"></a></li>
+                <li><a href="~/vista/Canje.aspx"></a></li>
+                <li><a href="~/vista/Centros.aspx"></a></li>
+                <li><a href="~/vista/Materiales.aspx"></a></li>
+                <li><a href="~/vista/Recompensas.aspx"></a></li>
+                <li><a href="~/vista/Registros.aspx"></a></li>
+                <li><a href="~/vista/Usuarios.aspx"></a></li>
+            </ul>
         </header>
 
         <main>
@@ -22,8 +31,6 @@
             <asp:ContentPlaceHolder ID="MainContent" runat="server">
             </asp:ContentPlaceHolder>
         </main>
-
-        <footer>Global Footer</footer>
     </form>
 </body>
 </html>
