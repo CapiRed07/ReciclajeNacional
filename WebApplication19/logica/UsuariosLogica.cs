@@ -104,5 +104,50 @@ namespace WebApplication19.logica
             }
             return retorno;
         }
+        // Metodo para validar el login de un usuario
+        public static bool ValidarLogin(clsUsuarios log)
+        {
+            // Se cifra la contraseña antes de enviarla a la base de datos para la validación
+            // Utilizando modelo SHA-256 para cifrar la contraseña
+            log.pwd = SecurityHelper.ConvertirSHA256(log.pwd);
+
+            // Se utiliza un bloque try-catch para manejar posibles excepciones al interactuar con la base de datos
+            try
+            {
+                using (SqlConnection Conn = modelo.DBconn.obtenerConexion())
+                {
+                    // Se llama al stored procedure para validar el login
+                    SqlCommand cmd = new SqlCommand("ValidarLogin", Conn)
+                    {
+                        CommandType = CommandType.StoredProcedure
+                    };
+
+                    // Se agregan los parámetros de correo y contraseña al comando
+                    cmd.Parameters.Add(new SqlParameter("@correo", log.correo));
+                    cmd.Parameters.Add(new SqlParameter("@pwd", log.pwd));
+
+                    using (SqlDataReader reader = cmd.ExecuteReader())
+                    {
+                        if (reader.Read())
+                        {
+                            log.id = reader.GetInt32(0);
+                            log.nombre = reader.GetString(1);
+                            log.rol = reader.GetString(2);
+                            return true;
+                        }
+                        else
+                        {
+                            return false;
+                        }
+                    }
+                }
+            }
+            catch (SqlException ex)
+            {
+                // Manejo de errores de SQL
+                throw new Exception("Error en la base de datos al validar el login.", ex);
+            }
+        }
+
     }
 }
