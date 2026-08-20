@@ -9,7 +9,7 @@ namespace WebApplication19.modelo
     {
         public int id { get; set; }
 
-        public string name { get; set; }
+        public string nombre { get; set; }
 
         public string correo { get; set; }
 
