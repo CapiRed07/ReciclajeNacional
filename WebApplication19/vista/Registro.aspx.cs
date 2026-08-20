@@ -23,7 +23,7 @@ namespace WebApplication19.vista
             nuevoRegistro.nombre = txtNombre.Text;
             nuevoRegistro.correo = txtCorreo.Text;
             nuevoRegistro.provincia = ddlProvincia.SelectedValue;
-            nuevoRegistro.pwd = txtPwd.Text;
+            nuevoRegistro.pwd = txtPassword.Text;
 
             // Llamada al método para registrar el usuario
             try
@@ -31,15 +31,19 @@ namespace WebApplication19.vista
                 if(string.IsNullOrWhiteSpace(nuevoRegistro.nombre) || string.IsNullOrWhiteSpace(nuevoRegistro.correo) || string.IsNullOrWhiteSpace(nuevoRegistro.pwd))
                 {
                     lblMensaje.Text = "Por favor, complete todos los campos obligatorios.";
+                    lblMessage.Visible = true;
                     return;
                 }
                 UsuariosLogica.AgregarUsuario(nuevoRegistro);
                 lblMensaje.Text = "Usuario registrado correctamente.";
+                lblMessage.ForeColor = System.Drawing.Color.Green;
+                lblMessage.Visible = true;
 
             }
             catch (Exception ex)
             {
                 lblMensaje.Text = "Error al registrar el usuario: " + ex.Message;
+                lblMessage.Visible = true;
             }
         }
     }
