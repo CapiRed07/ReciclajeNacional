@@ -6,6 +6,7 @@ using System.Data;
 using System.Data.SqlClient;
 using WebApplication19.modelo;
 using WebApplication19.logica;
+using BCrypt.Net;
 namespace WebApplication19.logica
 {
     public class UsuariosLogica
@@ -67,7 +68,7 @@ namespace WebApplication19.logica
             int retorno = 0;
             SqlConnection Conn = new SqlConnection();
             // Se cifra la contraseña antes de enviarla a la base de datos para el registro
-            NuevoUsuario.pwd = SecurityHelper.ConvertirSHA256(NuevoUsuario.pwd);
+            NuevoUsuario.pwd = BCrypt.Net.BCrypt.HashPassword(NuevoUsuario.pwd);
             try
             {
                 using (Conn = modelo.DBconn.obtenerConexion())
@@ -112,7 +113,7 @@ namespace WebApplication19.logica
         {
             // Se cifra la contraseña antes de enviarla a la base de datos para la validación
             // Utilizando modelo SHA-256 para cifrar la contraseña
-            log.pwd = SecurityHelper.ConvertirSHA256(log.pwd);
+            log.pwd = BCrypt.Net.BCrypt.HashPassword(log.pwd);
 
             // Se utiliza un bloque try-catch para manejar posibles excepciones al interactuar con la base de datos
             try
