@@ -21,7 +21,7 @@
     <div class="cards">
 
         <a href="" class="menu-card">
-            <img src="<%=%>"
+            <img src="../Images/centroReciclaje.jpg"
                  class="card-image"
                  alt="Centros" />
             <h3>Centro de Reciclaje</h3>
@@ -29,7 +29,7 @@
         </a>
 
         <a href="" class="menu-card">
-            <img src="<%=%>"
+            <img src="../Images/materiales.jpg"
                  class="card-image"
                  alt="Materiales" />
             <h3>Material</h3>
@@ -37,7 +37,7 @@
         </a>
 
         <a href="" class="menu-card">
-            <img src="<%=%>"
+            <img src="../Images/registros.jpg"
                  class="card-image"
                  alt="Registros" />
             <h3>Registro de reciclaje</h3>
@@ -45,7 +45,7 @@
         </a>
 
         <a href="" class="menu-card">
-            <img src="<%=%>"
+            <img src="../Images/Rewards.jpg"
                  class="card-image"
                  alt="Recompensas" />
             <h3>Recompensas</h3>
@@ -53,7 +53,7 @@
         </a>
 
         <a href="" class="menu-card">
-            <img src="<%=%>"
+            <img src="../Images/Canje.jpg"
                  class="card-image"
                  alt="Canjeo" />
             <h3>Canje de Recompensas</h3>
@@ -61,7 +61,7 @@
         </a>
 
         <a href="" class="menu-card">
-            <img src="<%= %>"
+            <img src="../Images/usuarios.jpg"
                  class="card-image"
                  alt="Usuarios" />
             <h3>Usuario</h3>
