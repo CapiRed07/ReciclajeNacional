@@ -13,6 +13,6 @@ namespace WebApplication19.modelo
 
         public string descripcion { get; set; }
 
-        public string puntosporkg { get; set; }
+        public decimal puntosporkg { get; set; }
     }
 }
