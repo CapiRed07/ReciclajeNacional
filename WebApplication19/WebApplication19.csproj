@@ -79,6 +79,9 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="logica\logica_tipo.cs" />
+    <Compile Include="Infraestructura\SecurePage.cs">
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
     <Compile Include="logica\UsuariosLogica.cs" />
     <Compile Include="modelo\clsUsuarios.cs" />
     <Compile Include="Infraestructura\SecurePage.cs" />
