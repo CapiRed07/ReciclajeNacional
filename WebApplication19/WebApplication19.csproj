@@ -79,8 +79,12 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="logica\logica_tipo.cs" />
+<<<<<<< HEAD
     <Compile Include="logica\UsuariosLogica.cs" />
     <Compile Include="modelo\clsUsuarios.cs" />
+=======
+    <Compile Include="Infraestructura\SecurePage.cs" />
+>>>>>>> 6e76300e9e0c0df9fc0caad1adc5c5b2998820d1
     <Compile Include="modelo\cls_reciclaje.cs" />
     <Compile Include="modelo\cls_tipo.cs" />
     <Compile Include="modelo\DBconn.cs" />
