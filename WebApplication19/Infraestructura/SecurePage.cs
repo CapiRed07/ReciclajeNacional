@@ -38,7 +38,7 @@ namespace WebApplication19.logica
                 !(bool)Session["EstaLogueado"])
             {
                 Response.Clear();
-                Response.Redirect("~/Login.aspx", true);
+                Response.Redirect("~/vista/Login.aspx", true);
                 return;
             }
             
@@ -52,7 +52,7 @@ namespace WebApplication19.logica
                 if (rolUsuario != RolRequerido)
                 {
                     Response.Clear();
-                    Response.Redirect("~/Unauthorized.aspx", true);
+                    Response.Redirect("~/vista/Unauthorized.aspx", true);
                     return;
                 }
             }
