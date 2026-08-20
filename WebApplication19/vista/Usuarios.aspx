@@ -1,7 +1,5 @@
 ﻿<%@ Page Language="C#" MasterPageFile="~/Layout/Site.Master" AutoEventWireup="true" CodeBehind="Usuarios.aspx.cs" Inherits="WebApplication19.vista.Usuarios" %>
 
-<!DOCTYPE html>
-
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
     <!-- Se puede dejar vacio sino se necesita css o javascript unicos -->
 </asp:Content>
