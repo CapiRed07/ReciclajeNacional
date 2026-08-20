@@ -72,6 +72,7 @@
     <Content Include="vista\Login.aspx" />
     <Content Include="vista\Materiales.aspx" />
     <Content Include="vista\Recompensas.aspx" />
+    <Content Include="vista\Registro.aspx" />
     <Content Include="vista\Registros.aspx" />
     <Content Include="vista\Tipo.aspx" />
     <Content Include="vista\Home.aspx" />
@@ -123,6 +124,13 @@
     </Compile>
     <Compile Include="vista\Recompensas.aspx.designer.cs">
       <DependentUpon>Recompensas.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="vista\Registro.aspx.cs">
+      <DependentUpon>Registro.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="vista\Registro.aspx.designer.cs">
+      <DependentUpon>Registro.aspx</DependentUpon>
     </Compile>
     <Compile Include="vista\Registros.aspx.cs">
       <DependentUpon>Registros.aspx</DependentUpon>
