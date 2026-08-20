@@ -20,11 +20,11 @@
         <ItemTemplate>
             <!-- Esto se repetirá para cada fila de SQL Server -->
             <div class="data-box">
-                <h3><%# Eval("nombre") %></h3>
-                <p><strong>Email:</strong> <%# Eval("correo") %></p>
-                <p><strong>Province:</strong> <%# Eval("provincia") %></p>
-                <p><strong>Rol:</strong> <%# Eval("rol") %></p>
-                <p class="points-badge"><strong>Points:</strong> <%# Eval("puntos") %></p>
+                <h3><%# Eval("Nombre") %></h3>
+                <p><strong>Email:</strong> <%# Eval("Correo") %></p>
+                <p><strong>Provincia:</strong> <%# Eval("Provincia") %></p>
+                <p><strong>Rol:</strong> <%# Eval("Rol") %></p>
+                <p class="points-badge"><strong>Puntos:</strong> <%# Eval("Puntos") %></p>
             </div>
         </ItemTemplate>
 
