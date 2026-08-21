@@ -42,21 +42,21 @@ namespace WebApplication19.vista
         protected global::System.Web.UI.WebControls.TextBox TxtID;
 
         /// <summary>
-        /// btnConsultar control.
+        /// BtnConsultar control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Button btnConsultar;
+        protected global::System.Web.UI.WebControls.Button BtnConsultar;
 
         /// <summary>
-        /// btnRefrescar control.
+        /// BtnRefrescar control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Button btnRefrescar;
+        protected global::System.Web.UI.WebControls.Button BtnRefrescar;
     }
 }
