@@ -124,7 +124,6 @@ namespace WebApplication19.logica
                     cmd.Parameters.Add(new SqlParameter("@RegistroID", Eliminado.id));
                     cmd.Parameters.Add(new SqlParameter("@UsuarioID", Eliminado.fkusuario));
 
-                    Conn.Open();
                     retorno = cmd.ExecuteNonQuery();
                     // Si se logra, se asignan las filas afectadas, cambiando a 1
                     return retorno;
@@ -223,7 +222,6 @@ namespace WebApplication19.logica
                     cmd.Parameters.Add(new SqlParameter("@PuntosObtenidos", RegistroModificar.puntosobtenidos));
 
                     // Conexion abierta y ejecucion
-                    Conn.Open();
                     retorno = cmd.ExecuteNonQuery();
 
                     return retorno; //Si modifica, se cambia a 1
@@ -240,20 +238,20 @@ namespace WebApplication19.logica
         // Metodo para calcular puntos obtenidos
         public static int CalcularPuntos(int idMaterial, int cantidadKg)
         {
-            // Reutilizamos fetcher para traer la lista de materiales actual
-            List<clsMateriales> listaMateriales = new List<clsMateriales>();
+            // Forzamos a que traiga la lista fresca directo de la base de datos en el postback
+            List<clsMateriales> lista = MaterialesLogica.ObtenerMateriales();
 
-            // Se busca el material que coincida con la FK seleccionada
-            clsMateriales materialSeleccionado = listaMateriales.FirstOrDefault(m => m.id == idMaterial);
+            // Buscamos el material seleccionado
+            clsMateriales materialSeleccionado = lista.FirstOrDefault(m => m.id == idMaterial);
 
             if (materialSeleccionado != null)
             {
-                // Multiplicar kilos por puntos del material
-                // Se convierte a int, todo el sistema de puntos es de enteros
+                // Realiza la multiplicación de los kg por el valor del material
                 return Convert.ToInt32(cantidadKg * materialSeleccionado.puntosporkg);
             }
-            // En caso de error devuelve 0 puntos
+
             return 0;
         }
+
     }
 }

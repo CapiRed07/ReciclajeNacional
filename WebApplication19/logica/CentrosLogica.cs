@@ -117,7 +117,6 @@ namespace WebApplication19.logica
                     // Parametro de id para encontrar el match
                     cmd.Parameters.Add(new SqlParameter("@CentroID", Eliminado.id));
 
-                    Conn.Open();
                     retorno = cmd.ExecuteNonQuery();
                     // Si se logra, se asignan las filas afectadas, cambiando a 1
                     return retorno;
@@ -212,7 +211,6 @@ namespace WebApplication19.logica
                     cmd.Parameters.Add(new SqlParameter("@Horario", CentroModificar.horario));
 
                     // Conexion abierta y ejecucion
-                    Conn.Open();
                     retorno = cmd.ExecuteNonQuery();
 
                     return retorno; //Si modifica, se cambia a 1

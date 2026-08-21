@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Data.SqlClient;
 using System.Linq;
 using System.Web;
 using System.Web.UI;
@@ -16,12 +17,66 @@ namespace WebApplication19.vista
             if (!IsPostBack)
             {
                 CargarRegistros();
+                CargarComboCentros();
+                CargarComboMateriales();
             }
         }
         private void CargarRegistros()
         {
             GridRegistros.DataSource = RegistrosLogica.ObtenerRegistros();
             GridRegistros.DataBind();
+        }
+
+        private void CargarComboMateriales()
+        {
+            try
+            {
+                //  Invoca al fetcher, trae la lista
+                var listaMateriales = MaterialesLogica.ObtenerMateriales();
+
+                // Se le asigna la fuente de datos al control
+                ddlFKMaterial.DataSource = listaMateriales;
+
+                // DataTextField nombre de la propiedad que se quiere mostrar al usuario
+                ddlFKMaterial.DataTextField = "nombre";
+
+                // DataValueField nombre de la propiedad que guarda el ID (la FK)
+                ddlFKMaterial.DataValueField = "id";
+
+                // Se enlazan los datos para que se dibuje el componente
+                ddlFKMaterial.DataBind();
+
+                // Agregar una opción neutra al principio de la lista
+                ddlFKMaterial.Items.Insert(0, new ListItem("-- Seleccione un Material --", "0"));
+            }
+            catch (Exception ex)
+            {
+                //lblError.Text = "Ocurrió un error al cargar el catálogo de materiales.";
+                //lblError.Visible = true;
+            }
+        }
+        private void CargarComboCentros()
+        {
+            try
+            {
+                // Se invoca al fetcher
+                var listaCentros = CentrosLogica.ObtenerCentros();
+
+                ddlFKCentros.DataSource = listaCentros;
+
+                // 2. Mapea según las propiedades de la clase clsCentros
+                ddlFKCentros.DataTextField = "nombre";
+                ddlFKCentros.DataValueField = "id";
+
+                ddlFKCentros.DataBind();
+
+                ddlFKCentros.Items.Insert(0, new ListItem("-- Seleccione un Centro --", "0"));
+            }
+            catch (Exception ex)
+            {
+                //lblError.Text = "Ocurrió un error al cargar el catálogo de centros.";
+                //lblError.Visible = true;
+            }
         }
         protected void BtnGuardar_Click(object sender, EventArgs e)
         {
@@ -103,6 +158,7 @@ namespace WebApplication19.vista
 
                 // Se le pasa el id del registro
                 NuevoBorrado.id = Convert.ToInt32(TxtID.Text);
+                NuevoBorrado.fkusuario = UsuarioIdLogueado;
 
                 // Enviar registro a base
                 int resultado = RegistrosLogica.BorrarRegistros(NuevoBorrado);
