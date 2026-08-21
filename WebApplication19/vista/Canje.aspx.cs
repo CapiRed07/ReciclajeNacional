@@ -63,6 +63,7 @@ namespace WebApplication19.vista
 
                 // Se convierten los datos numericos de los textboxes
                 NuevoGuardado.fecha = Convert.ToDateTime(TxtFecha.Text);
+                NuevoGuardado.cantidad = Convert.ToInt32(TxtCant.Text);
                 // Los puntos obtenidos se deben calcular
                 NuevoGuardado.puntosutilizados = CanjeLogica.CalcularPuntosCanje(NuevoGuardado.fkrecompensa);
 
