@@ -141,7 +141,7 @@ namespace WebApplication19.logica
                                 rol = reader.GetString(6)
                             };
 
-                            // Pasamos los datos de cada material a la lista
+                            // Pasamos los datos de cada Usuario a la lista
                             listaUsuarios.Add(Usuarios);
                         }
 
@@ -198,9 +198,9 @@ namespace WebApplication19.logica
             }
         }
         // Para consultar Usuarios especificos, todos pueden acceder
-        public static clsUsuarios ConsultaMaterialporID(clsUsuarios UsuarioConsultado)
+        public static clsUsuarios ConsultaUsuarioporID(clsUsuarios UsuarioConsultado)
         {
-            clsUsuarios MaterialConsulta = null; // Sino encuentra, devuelve en nulo
+            clsUsuarios UsuarioConsulta = null; // Sino encuentra, devuelve en nulo
             SqlConnection Conn = new SqlConnection();
 
             try
@@ -213,7 +213,7 @@ namespace WebApplication19.logica
                         CommandType = CommandType.StoredProcedure
                     };
 
-                    // Se le pasa ID como parametro para buscar el material a consultar
+                    // Se le pasa ID como parametro para buscar el Usuario a consultar
                     cmd.Parameters.Add(new SqlParameter("@UsuarioID", UsuarioConsultado.id));
 
                     // Se llama al reader
@@ -222,7 +222,7 @@ namespace WebApplication19.logica
                         //If, solo buscamos uno en este caso.
                         if (reader.Read())
                         {
-                            MaterialConsulta = new clsUsuarios
+                            UsuarioConsulta = new clsUsuarios
                             {
                                 id = reader.GetInt32(0),
                                 nombre = reader.GetString(1),
@@ -249,6 +249,50 @@ namespace WebApplication19.logica
                 }
             }
             return UsuarioConsulta;
+        }
+        // Funcion para modificar Usuarios, pensada para administradores.
+        public static int ModificarUsuarios(clsUsuarios UsuarioModificar)
+        {
+            int retorno = 0; // 0 sino modifica nada
+
+            try
+            {
+                using (SqlConnection Conn = modelo.DBconn.obtenerConexion())
+                {
+                    // Stored procedure
+                    SqlCommand cmd = new SqlCommand("ModificarUsuario", Conn)
+                    {
+                        CommandType = CommandType.StoredProcedure
+                    };
+
+                    // Variables a modificar como parametros
+                    cmd.Parameters.Add(new SqlParameter("@UsuarioID", UsuarioModificar.id));
+                    cmd.Parameters.Add(new SqlParameter("@Nombre", UsuarioModificar.nombre));
+                    cmd.Parameters.Add(new SqlParameter("@Correo", UsuarioModificar.correo));
+                    cmd.Parameters.Add(new SqlParameter("@Pwd", UsuarioModificar.pwd));
+                    cmd.Parameters.Add(new SqlParameter("@Rol", UsuarioModificar.rol));
+
+                    // Validacion para la provincia, si es null o vacía para usuarios de rol "admin", se pasa como DBNull
+                    if (UsuarioModificar.rol == "admin" || string.IsNullOrEmpty(UsuarioModificar.provincia))
+                    {
+                        cmd.Parameters.Add(new SqlParameter("@Provincia", DBNull.Value));
+                    }
+                    else
+                    {
+                        cmd.Parameters.Add(new SqlParameter("@Provincia", UsuarioModificar.provincia));
+                    }
+                    // Conexion abierta y ejecucion
+                    retorno = cmd.ExecuteNonQuery();
+
+                    return retorno; //Si modifica, se cambia a 1
+                }
+            }
+            catch (Exception Ex)
+            {
+                // Manejo de errores
+                retorno = 0;
+            }
+            return retorno;
         }
         // Metodo para validar el login de un usuario
         public static bool ValidarLogin(clsUsuarios log)
