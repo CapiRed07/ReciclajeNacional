@@ -22,6 +22,28 @@ namespace WebApplication19.vista
                 CargarUsuarioLogueado();
             }
         }
+        private void CargarComboProvincia()
+        {
+            try
+            {
+                var listaUsuarios = UsuariosLogica.ObtenerUsuarios();
+
+                ddlProvincia.DataSource = listaUsuarios;
+
+                ddlProvincia.DataTextField = "provincia";
+
+                ddlProvincia.DataValueField = "provincia";
+
+                ddlProvincia.DataBind();
+
+                ddlProvincia.Items.Insert(0, new ListItem("-- Seleccione una provincia --", "0"));
+            }
+            catch (Exception ex)
+            {
+                //lblError.Text = "Ocurrió un error al cargar el catálogo de materiales.";
+                //lblError.Visible = true;
+            }
+}
         private void CargarUsuarioLogueado()
         {
             // Se llama a la logica para obtener el usuario logueado, se le envia el ID de SecurePage (UsuarioIdLogueado) y se obtiene el perfil del usuario logueado
