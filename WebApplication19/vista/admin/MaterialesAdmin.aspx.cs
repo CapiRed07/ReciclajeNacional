@@ -64,5 +64,98 @@ namespace WebApplication19.vista
                 // lbl mensaje "no se encontro"
             }
         }
+
+        protected void BtnAgregar_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                // Se instancia el objeto
+                clsMateriales NuevoGuardado = new clsMateriales();
+
+                // Se convierten los valores de los ddl a enteros
+                NuevoGuardado.nombre = Convert.ToString(TxtNombre.Text);
+                NuevoGuardado.descripcion = Convert.ToString(TxtDescripcion.Text);
+
+                // Se convierten los datos numericos de los textboxes
+                NuevoGuardado.puntosporkg = Convert.ToInt32(Txtpuntos.Text);
+
+                // Se envia el registro a la base
+                int resultado = MaterialesLogica.AgregarMateriales(NuevoGuardado);
+
+                if (resultado > 0)
+                {
+                    // mensajes de exito
+                }
+                else
+                {
+                    // mensaje de error
+                }
+            }
+            catch (Exception ex)
+            {
+                // Manejo de error, formato de los datos
+            }
+        }
+
+        protected void BtnEliminar_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                // Instancia del objeto
+                clsMateriales NuevoBorrado = new clsMateriales();
+
+                // Se le pasa el id del registro
+                NuevoBorrado.id = Convert.ToInt32(TxtID.Text);
+
+                // Enviar registro a base
+                int resultado = MaterialesLogica.BorrarMateriales(NuevoBorrado);
+
+                if (resultado > 0)
+                {
+                    // mensajes de exito
+                }
+                else
+                {
+                    // mensaje de error
+                }
+            }
+            catch (Exception ex)
+            {
+                // Manejo de error, formato de los datos
+            }
+        }
+
+        protected void BtnActualizar_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                // Se instancia el objeto
+                clsMateriales NuevoGuardado = new clsMateriales();
+
+                // Se convierten los valores de los ddl a enteros
+                NuevoGuardado.id = Convert.ToInt32(TxtID.Text);
+                NuevoGuardado.nombre = Convert.ToString(TxtNombre.Text);
+                NuevoGuardado.descripcion = Convert.ToString(TxtDescripcion.Text);
+
+                // Se convierten los datos numericos de los textboxes
+                NuevoGuardado.puntosporkg = Convert.ToInt32(Txtpuntos.Text);
+
+                // Se envia el registro a la base
+                int resultado = MaterialesLogica.ModificarMateriales(NuevoGuardado);
+
+                if (resultado > 0)
+                {
+                    // mensajes de exito
+                }
+                else
+                {
+                    // mensaje de error
+                }
+            }
+            catch (Exception ex)
+            {
+                // Manejo de error, formato de los datos
+            }
+        }
     }
 }
