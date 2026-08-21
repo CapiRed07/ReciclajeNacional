@@ -228,4 +228,23 @@ namespace WebApplication19.logica
             }
             return retorno;
         }
+        public static int CalcularPuntosCanje(int idRecompensa, int cantidadUnidades)
+        {
+            // Se utiliza el fetcher para traer datos frescos de la base de datos
+            List<clsRecompensas> listaRecompensas = RecompensasLogica.ObtenerRecompensas();
+
+            // LINQ para buscar la recompensa especifica
+            clsRecompensas recompensaSeleccionada = listaRecompensas.FirstOrDefault(r => r.id == idRecompensa);
+
+            if (recompensaSeleccionada != null)
+            {
+                // Se multiplica por la cantidad de unidades
+                int puntosPorUnidad = Convert.ToInt32(recompensaSeleccionada.puntosnecesarios);
+
+                return puntosPorUnidad * cantidadUnidades;
+            }
+
+            // Si por alguna razón no encuentra la recompensa, retorna 0 puntos para evitar inconsistencias
+            return 0;
+        }
     }
