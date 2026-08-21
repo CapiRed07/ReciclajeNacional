@@ -64,5 +64,96 @@ namespace WebApplication19.vista
             CargarRecompensas();
             TxtID.Text = "";
         }
+
+        protected void BtnAgregar_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                // Se instancia el objeto
+                clsRecompensas NuevoGuardado = new clsRecompensas();
+
+                // Asignar valores
+                NuevoGuardado.nombre = Convert.ToString(TxtNombre.Text);
+                NuevoGuardado.descripcion = Convert.ToString(TxtDescripcion.Text);
+                NuevoGuardado.disponible = Convert.ToString(TxtCant.Text);
+                NuevoGuardado.puntosnecesarios = Convert.ToInt32(TxtPuntos.Text);
+
+                // Se envia el registro a la base
+                int resultado = RecompensasLogica.AgregarRecompensas(NuevoGuardado);
+
+                if (resultado > 0)
+                {
+                    // mensajes de exito
+                }
+                else
+                {
+                    // mensaje de error
+                }
+            }
+            catch (Exception ex)
+            {
+                // Manejo de error, formato de los datos
+            }
+        }
+
+        protected void BtnEliminar_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                // Instancia del objeto
+                clsRecompensas NuevoBorrado = new clsRecompensas();
+
+                // Se le pasa el id del registro
+                NuevoBorrado.id = Convert.ToInt32(TxtID.Text);
+
+                // Enviar registro a base
+                int resultado = RecompensasLogica.BorrarRecompensas(NuevoBorrado);
+
+                if (resultado > 0)
+                {
+                    // mensajes de exito
+                }
+                else
+                {
+                    // mensaje de error
+                }
+            }
+            catch (Exception ex)
+            {
+                // Manejo de error, formato de los datos
+            }
+        }
+
+        protected void BtnActualizar_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                // Se instancia el objeto
+                clsRecompensas NuevoGuardado = new clsRecompensas();
+
+                // Se convierten los valores de los ddl a enteros
+                NuevoGuardado.id = Convert.ToInt32(TxtID.Text);
+                NuevoGuardado.nombre = Convert.ToString(TxtNombre.Text);
+                NuevoGuardado.descripcion = Convert.ToString(TxtDescripcion.Text);
+                NuevoGuardado.disponible = Convert.ToString(TxtCant.Text);
+                NuevoGuardado.puntosnecesarios = Convert.ToInt32(TxtPuntos.Text);
+
+                // Se envia el registro a la base
+                int resultado = RecompensasLogica.ModificarRecompensas(NuevoGuardado);
+
+                if (resultado > 0)
+                {
+                    // mensajes de exito
+                }
+                else
+                {
+                    // mensaje de error
+                }
+            }
+            catch (Exception ex)
+            {
+                // Manejo de error, formato de los datos
+            }
+        }
     }
 }
