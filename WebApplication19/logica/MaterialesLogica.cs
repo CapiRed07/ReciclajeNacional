@@ -127,6 +127,7 @@ namespace WebApplication19.logica
             }
             finally
             {
+                if( Conn != null )
                 Conn.Close();
                 Conn.Dispose();
             }
