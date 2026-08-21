@@ -12,8 +12,8 @@
         <br />
         <asp:TextBox ID="TxtID" runat="server"></asp:TextBox>
         <br />
-        <asp:Button ID="btnConsultar" runat="server" Text="Consultar por ID" />
-        <asp:Button ID="btnRefrescar" runat="server" Text="Refrescar" />
+        <asp:Button ID="btnConsultar" runat="server" Text="Consultar por ID" OnClick="btnConsultar_Click" />
+        <asp:Button ID="btnRefrescar" runat="server" Text="Refrescar" OnClick="btnRefrescar_Click" />
     </div>
 </asp:Content>
 
