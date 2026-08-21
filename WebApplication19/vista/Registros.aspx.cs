@@ -65,6 +65,7 @@ namespace WebApplication19.vista
                 clsRegistros NuevoModificado = new clsRegistros();
 
                 // Se convierten los valores de los ddl a enteros
+                NuevoModificado.id = Convert.ToInt32(TxtID.Text);
                 NuevoModificado.fkusuario = UsuarioIdLogueado;
                 NuevoModificado.fkmaterial = Convert.ToInt32(ddlFKMaterial.SelectedValue);
                 NuevoModificado.fkcentro = Convert.ToInt32(ddlFKCentros.SelectedValue);
