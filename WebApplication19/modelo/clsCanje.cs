@@ -13,6 +13,7 @@ namespace WebApplication19.modelo
 
         public int fkrecompensa { get; set; }
 
+        public int cantidad { get; set; }
         public DateTime fecha { get; set; }
 
         public int puntosutilizados { get; set; }

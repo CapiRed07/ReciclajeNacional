@@ -226,7 +226,7 @@ namespace WebApplication19.logica
             }
             return retorno;
         }
-        public static int CalcularPuntosCanje(int idRecompensa)
+        public static int CalcularPuntosCanje(int idRecompensa, int Cantidad)
         {
             // Se utiliza el fetcher para traer datos frescos de la base de datos
             List<clsRecompensas> listaRecompensas = RecompensasLogica.ObtenerRecompensas();
