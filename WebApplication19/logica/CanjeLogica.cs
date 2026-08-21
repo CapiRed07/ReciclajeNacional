@@ -38,12 +38,17 @@ namespace WebApplication19.logica
                      retorno = cmd.ExecuteNonQuery();
                  }
              }
-             catch (SqlException Ex)
-             {
+            catch (System.Data.SqlClient.SqlException ex)
+            {
                 // Manejo de errores
-                return -1; //En caso de error
-             }
-             finally
+                return -2; // Retorna -1 en caso de error
+            }
+            catch
+            {
+                // Error general
+                return -1;
+            }
+            finally
              {
                 Conn.Close();
                 Conn.Dispose();
@@ -126,10 +131,18 @@ namespace WebApplication19.logica
                     return retorno;
                 }
             }
-            catch (Exception Ex)
+            catch (SqlException Ex)
             {
                 // Manejo de errores
+                if (Ex.Number == 547)
+                {
+                    return -2; // Violacion de llave foranea
+                }
                 return 0;
+            }
+            catch (Exception)
+            {
+                return -1; //Cualquier otro error
             }
             finally
             {

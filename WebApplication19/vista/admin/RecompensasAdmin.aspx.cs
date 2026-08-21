@@ -86,6 +86,11 @@ namespace WebApplication19.vista.admin
                     LblMensaje.Text = "Recompensa borrada con exito.";
                     LblMensaje.Visible = true;
                 }
+                else if (resultado == -2)
+                {
+                    LblMensaje.Text = "Error con la base de datos.";
+                    LblMensaje.Visible = true;
+                }
                 else
                 {
                     LblMensaje.Text = "No se pudo borrar la recompensa.";

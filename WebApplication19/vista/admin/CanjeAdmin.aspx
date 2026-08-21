@@ -8,6 +8,8 @@
     <div>
         <asp:GridView ID="GridCanje" runat="server"></asp:GridView>
         <br />
+        <asp:Label ID="LblMensaje" runat="server" Visible="false" Text=""></asp:Label>
+        <br />
         <asp:Label ID="LblFKUsuarios" runat="server" Text="Usuarios"></asp:Label>
         <br />
         <asp:DropDownList ID="ddlFKUsuarios" runat="server"></asp:DropDownList>

@@ -48,8 +48,8 @@ namespace WebApplication19.vista.admin
             }
             catch (Exception ex)
             {
-                //lblError.Text = "Ocurrió un error al cargar el catálogo de Usuarios.";
-                //lblError.Visible = true;
+                LblMensaje.Text = "Ocurrió un error al cargar el catálogo de Usuarios.";
+                LblMensaje.Visible = true;
             }
         }
 
@@ -77,8 +77,8 @@ namespace WebApplication19.vista.admin
             }
             catch (Exception ex)
             {
-                //lblError.Text = "Ocurrió un error al cargar el catálogo de materiales.";
-                //lblError.Visible = true;
+                LblMensaje.Text = "Ocurrió un error al cargar el catálogo de materiales.";
+                LblMensaje.Visible = true;
             }
         }
 
@@ -104,16 +104,24 @@ namespace WebApplication19.vista.admin
 
                 if (resultado > 0)
                 {
-                    // mensajes de exito
+                    LblMensaje.Text = "Canje borrado con exito.";
+                    LblMensaje.Visible = true;
+                }
+                else if (resultado == -2)
+                {
+                    LblMensaje.Text = "Error con la base de datos.";
+                    LblMensaje.Visible = true;
                 }
                 else
                 {
-                    // mensaje de error
+                    LblMensaje.Text = "No se pudo borrar al canje.";
+                    LblMensaje.Visible = true;
                 }
             }
             catch (Exception ex)
             {
-                // Manejo de error, formato de los datos
+                LblMensaje.Text = "Asegúrese de dar los datos de forma correcta (los ID son enteros, no use caracteres)";
+                LblMensaje.Visible = true;
             }
             CargarCanjes();
         }
@@ -138,16 +146,19 @@ namespace WebApplication19.vista.admin
 
                 if (resultado > 0)
                 {
-                    // mensajes de exito
+                    LblMensaje.Text = "Canje borrado con exito.";
+                    LblMensaje.Visible = true;
                 }
                 else
                 {
-                    // mensaje de error
+                    LblMensaje.Text = "No se pudo borrar al canje.";
+                    LblMensaje.Visible = true;
                 }
             }
             catch (Exception ex)
             {
-                // Manejo de error, formato de los datos
+                LblMensaje.Text = "Asegúrese de dar los datos de forma correcta (los ID son enteros, no use caracteres)";
+                LblMensaje.Visible = true;
             }
             CargarCanjes();
         }
@@ -168,16 +179,24 @@ namespace WebApplication19.vista.admin
 
                 if (resultado > 0)
                 {
-                    // mensajes de exito
+                    LblMensaje.Text = "Canje borrado con exito.";
+                    LblMensaje.Visible = true;
                 }
                 else
                 {
-                    // mensaje de error
+                    if (resultado == -2)
+                    {
+                        LblMensaje.Text = "No puede borrar al canje, ya que tiene asignado algo, borre sus asignaciones primero";
+                        LblMensaje.Visible = true;
+                    }
+                    LblMensaje.Text = "No se pudo borrar al canje.";
+                    LblMensaje.Visible = true;
                 }
             }
             catch (Exception ex)
             {
-                // Manejo de error, formato de los datos
+                LblMensaje.Text = "Asegúrese de dar los datos de forma correcta (los ID son enteros, no use caracteres)";
+                LblMensaje.Visible = true;
             }
             CargarCanjes();
         }
@@ -186,8 +205,8 @@ namespace WebApplication19.vista.admin
         {
             if (!int.TryParse(TxtID.Text, out int parsedID))
             {
-                // Manejo de errores
-                // Agregar lbl
+                LblMensaje.Text = "Ingrese un ID valido (numeros enteros)";
+                LblMensaje.Visible = false;
                 return;
             }
 
@@ -209,7 +228,8 @@ namespace WebApplication19.vista.admin
                 // Limpiar el grid sino hay resultados
                 GridCanje.DataSource = null;
                 GridCanje.DataBind();
-                // lbl mensaje "no se encontro"
+                LblMensaje.Text = "No se encontro el canje. Esta seguro de que ese ID existe?";
+                LblMensaje.Visible = true;
             }
         }
 
