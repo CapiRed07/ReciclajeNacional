@@ -13,7 +13,11 @@ namespace WebApplication19.vista
     {
         protected void Page_Load(object sender, EventArgs e)
         {
-
+            if(!IsPostBack)
+            {
+                CargarCanjes();
+                CargarComboRecompensas();
+            }
         }
 
         private void CargarCanjes()
