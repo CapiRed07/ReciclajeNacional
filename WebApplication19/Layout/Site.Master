@@ -14,7 +14,7 @@
 <body>
     <form id="form1" runat="server">
         <header id="globalHeader" runat="server">
-            <nav id="globalNav" runat="server">Navegación</nav>
+            <nav id="globalNav" runat="server">Páginas de usuario</nav>
             <ul>
                 <li><a href="~/vista/Home.aspx" runat="server">Inicio</a></li>
                 <li><a href="~/vista/Canje.aspx" runat="server">Canje</a></li>

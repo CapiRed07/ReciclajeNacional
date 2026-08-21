@@ -11,7 +11,14 @@ namespace WebApplication19.logica
         {
             "login.aspx",
             "registro.aspx",
-            "unauthorized.aspx"
+            "unauthorized.aspx",
+            "HomeAdmin.aspx",
+            "CanjeAdmin.aspx",
+            "CentrosAdmin.aspx",
+            "MaterialesAdmin.aspx",
+            "RecompensasAdmin.aspx",
+            "RegistrosAdmin.aspx",
+            "UsuariosAdmin.aspx"
         };
         public static bool NavOculta(string paginaActual)
         {

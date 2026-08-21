@@ -10,6 +10,7 @@
     </div>
         <div class="top-home">
     <h2>Bienvenido al sistema de Reciclaje</h2>
+            <h3>Usted es un admin</h3>
 
     <p class="texto-home">
         Seleccione una opción para comenzar.
@@ -18,51 +19,51 @@
     <div class="cards">
 
         <a href="~/vista/admin/CentrosAdmin.aspx" class="menu-card" runat="server">
-            <img src="../Images/centroReciclaje.jpg"
+            <img src="~/Images/centroReciclaje.jpg"
                  class="card-image"
                  alt="Centros" />
             <h3>Centro de Reciclaje</h3>
-            <p>Consulte por el centro más cercano</p>
+            <p>Gestione los centros</p>
         </a>
 
         <a href="~/vista/admin/MaterialesAdmin.aspx" class="menu-card" runat="server">
-            <img src="../Images/materiales.jpg"
+            <img src="~/Images/materiales.jpg"
                  class="card-image"
                  alt="Materiales" />
             <h3>Material</h3>
-            <p>Consulte por el material de reciclaje</p>
+            <p>Gestione el material de reciclaje</p>
         </a>
 
         <a href="~/vista/admin/RegistrosAdmin.aspx" class="menu-card" runat="server">
-            <img src="../Images/registros.jpg"
+            <img src="~/Images/registros.jpg"
                  class="card-image"
                  alt="Registros" />
             <h3>Registro de reciclaje</h3>
-            <p>Consulte y gestione sus registros de reciclaje</p>
+            <p>Gestione los registros de reciclaje</p>
         </a>
 
         <a href="~/vista/admin/RecompensasAdmin.aspx" class="menu-card" runat="server">
-            <img src="../Images/Rewards.jpg"
+            <img src="~/Images/Rewards.jpg"
                  class="card-image"
                  alt="Recompensas" />
             <h3>Recompensas</h3>
-            <p>Consulte nuestras recompensas</p>
+            <p>Gestione las recompensas</p>
         </a>
 
         <a href="~/vista/admin/CanjeAdmin.aspx" class="menu-card" runat="server">
-            <img src="../Images/Canje.jpg"
+            <img src="~/Images/Canje.jpg"
                  class="card-image"
                  alt="Canjeo" />
             <h3>Canje de Recompensas</h3>
-            <p>Utilice sus puntos para canjear recompensas</p>
+            <p>Gestione el sistema de canjeo</p>
         </a>
 
         <a href="~/vista/admin/UsuariosAdmin.aspx" class="menu-card" runat="server">
-            <img src="../Images/usuarios.jpg"
+            <img src="~/Images/usuarios.jpg"
                  class="card-image"
                  alt="Usuarios" />
             <h3>Usuario</h3>
-            <p>Gestione su perfil, puntos y configuración</p>
+            <p>Gestione perfiles, puntos y configuración</p>
         </a>
 
     </div>
