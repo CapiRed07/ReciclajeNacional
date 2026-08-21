@@ -9,7 +9,7 @@ using WebApplication19.logica;
 using WebApplication19.modelo;
 namespace WebApplication19.vista
 {
-    public partial class Materiales : System.Web.UI.Page
+    public partial class Materiales : SecurePage
     {
         protected void Page_Load(object sender, EventArgs e)
         {
