@@ -29,7 +29,7 @@ namespace WebApplication19.vista.admin
             return MantenimientoLogica.EjecutarProcedimiento("dbo.sp_InyectarDatosPrueba");
         }
 
-        protected void btnLimpiar_Click(object sender, EventArgs e)
+        protected void BtnClean_Click(object sender, EventArgs e)
         {
             if (LimpiarDatos())
             {
@@ -43,7 +43,7 @@ namespace WebApplication19.vista.admin
             }
         }
 
-        protected void btnInyectar_Click(object sender, EventArgs e)
+        protected void BtnInsert_Click(object sender, EventArgs e)
         {
             if (InyectarDatos())
             {
