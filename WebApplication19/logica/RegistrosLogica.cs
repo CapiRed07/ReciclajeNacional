@@ -122,6 +122,7 @@ namespace WebApplication19.logica
                     };
                     // Parametro de id para encontrar el match
                     cmd.Parameters.Add(new SqlParameter("@RegistroID", Eliminado.id));
+                    cmd.Parameters.Add(new SqlParameter("@UsuarioID", Eliminado.fkusuario));
 
                     Conn.Open();
                     retorno = cmd.ExecuteNonQuery();

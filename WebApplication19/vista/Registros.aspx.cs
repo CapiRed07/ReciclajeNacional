@@ -39,6 +39,7 @@ namespace WebApplication19.vista
                 NuevoGuardado.cantidadkg = Convert.ToInt32(TxtKg.Text);
                 NuevoGuardado.fecha = TxtFecha.Text;
                 // Los puntos obtenidos se deben calcular
+                NuevoGuardado.puntosobtenidos = RegistrosLogica.CalcularPuntos(NuevoGuardado.fkmaterial, NuevoGuardado.cantidadkg);
 
                 // Se envia el registro a la base
                 int resultado = RegistrosLogica.AgregarRegistros(NuevoGuardado);
