@@ -202,8 +202,8 @@ namespace WebApplication19.logica
                     // Variables a modificar como parametros
                     cmd.Parameters.Add(new SqlParameter("@MaterialID", MaterialModificar.id)); // Este es el identificador, no se cambia, busca
                     cmd.Parameters.Add(new SqlParameter("@Nombre", MaterialModificar.nombre));
-                    cmd.Parameters.Add(new SqlParameter("Descripcion", MaterialModificar.descripcion));
-                    cmd.Parameters.Add(new SqlParameter("PuntosporKG", MaterialModificar.puntosporkg));
+                    cmd.Parameters.Add(new SqlParameter("@Descripcion", MaterialModificar.descripcion));
+                    cmd.Parameters.Add(new SqlParameter("@PuntosporKG", MaterialModificar.puntosporkg));
 
                     // Conexion abierta y ejecucion
                     Conn.Open();
