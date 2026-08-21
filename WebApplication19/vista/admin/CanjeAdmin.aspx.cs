@@ -7,11 +7,11 @@ using System.Web.UI.WebControls;
 using WebApplication19.logica;
 using WebApplication19.modelo;
 
-namespace WebApplication19.vista
+namespace WebApplication19.vista.admin
 {
-    public partial class Canje : SecurePage
+    public partial class CanjeAdmin : Canje
     {
-        public adminCanje()
+        public void adminCanje()
         {
             RolRequerido = "admin";
         }
@@ -89,7 +89,7 @@ namespace WebApplication19.vista
                 clsCanje NuevoGuardado = new clsCanje();
 
                 // Se convierten los valores de los ddl a enteros
-                NuevoGuardado.fkusuario = Convert.ToString(ddlFKUsuarios.SelectedValue);
+                NuevoGuardado.fkusuario = Convert.ToInt32(ddlFKUsuarios.SelectedValue);
                 NuevoGuardado.fkrecompensa = Convert.ToInt32(ddlFKRecompensas.SelectedValue);
 
                 // Se convierten los datos numericos de los textboxes
@@ -124,7 +124,7 @@ namespace WebApplication19.vista
 
                 // Se convierten los valores de los ddl a enteros
                 NuevoModificado.id = Convert.ToInt32(TxtID.Text);
-                NuevoModificado.fkusuario = Convert.ToString(ddlFKUsuarios.SelectedValue);
+                NuevoModificado.fkusuario = Convert.ToInt32(ddlFKUsuarios.SelectedValue);
                 NuevoModificado.fkrecompensa = Convert.ToInt32(ddlFKRecompensas.SelectedValue);
 
                 // Se convierten los datos numericos de los textboxes
@@ -158,7 +158,7 @@ namespace WebApplication19.vista
 
                 // Se le pasa el id del canje
                 NuevoBorrado.id = Convert.ToInt32(TxtID.Text);
-                NuevoBorrado.fkusuario = Convert.ToString(ddlFKUsuarios.SelectedValue);
+                NuevoBorrado.fkusuario = Convert.ToInt32(ddlFKUsuarios.SelectedValue);
 
                 // Enviar canje a base
                 int resultado = CanjeLogica.BorrarCanjes(NuevoBorrado);

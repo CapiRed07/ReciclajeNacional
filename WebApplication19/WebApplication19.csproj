@@ -90,7 +90,6 @@
     <Content Include="vista\admin\HomeAdmin.aspx" />
     <Content Include="vista\admin\MaterialesAdmin.aspx" />
     <Content Include="vista\admin\RecompensasAdmin.aspx" />
-    <Content Include="vista\admin\RegistroAdmin.aspx" />
     <Content Include="vista\admin\RegistrosAdmin.aspx" />
     <Content Include="vista\admin\UsuariosAdmin.aspx" />
     <Content Include="vista\Canje.aspx" />
@@ -168,13 +167,6 @@
     </Compile>
     <Compile Include="vista\admin\RecompensasAdmin.aspx.designer.cs">
       <DependentUpon>RecompensasAdmin.aspx</DependentUpon>
-    </Compile>
-    <Compile Include="vista\admin\RegistroAdmin.aspx.cs">
-      <DependentUpon>RegistroAdmin.aspx</DependentUpon>
-      <SubType>ASPXCodeBehind</SubType>
-    </Compile>
-    <Compile Include="vista\admin\RegistroAdmin.aspx.designer.cs">
-      <DependentUpon>RegistroAdmin.aspx</DependentUpon>
     </Compile>
     <Compile Include="vista\admin\RegistrosAdmin.aspx.cs">
       <DependentUpon>RegistrosAdmin.aspx</DependentUpon>

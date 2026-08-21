@@ -7,11 +7,11 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace WebApplication19.vista
+namespace WebApplication19.vista.admin
 {
 
 
-    public partial class Registros
+    public partial class RegistrosAdmin
     {
 
         /// <summary>

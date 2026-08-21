@@ -7,11 +7,11 @@ using System.Web.UI;
 using System.Web.UI.WebControls;
 using WebApplication19.logica;
 using WebApplication19.modelo;
-namespace WebApplication19.vista
+namespace WebApplication19.vista.admin
 {
-    public partial class Materiales : SecurePage
+    public partial class MaterialesAdmin : Materiales 
     {
-        public adminMateriales()
+        public void adminMateriales()
         {
             RolRequerido = "admin";
         }
@@ -77,7 +77,7 @@ namespace WebApplication19.vista
                 NuevoGuardado.descripcion = Convert.ToString(TxtDescripcion.Text);
 
                 // Se convierten los datos numericos de los textboxes
-                NuevoGuardado.puntosporkg = Convert.ToInt32(Txtpuntos.Text);
+                NuevoGuardado.puntosporkg = Convert.ToInt32(TxtPuntos.Text);
 
                 // Se envia el registro a la base
                 int resultado = MaterialesLogica.AgregarMateriales(NuevoGuardado);
@@ -138,7 +138,7 @@ namespace WebApplication19.vista
                 NuevoGuardado.descripcion = Convert.ToString(TxtDescripcion.Text);
 
                 // Se convierten los datos numericos de los textboxes
-                NuevoGuardado.puntosporkg = Convert.ToInt32(Txtpuntos.Text);
+                NuevoGuardado.puntosporkg = Convert.ToInt32(TxtPuntos.Text);
 
                 // Se envia el registro a la base
                 int resultado = MaterialesLogica.ModificarMateriales(NuevoGuardado);

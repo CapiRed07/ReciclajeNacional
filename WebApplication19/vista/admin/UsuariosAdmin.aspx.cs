@@ -7,11 +7,11 @@ using System.Web.UI.WebControls;
 using WebApplication19.logica;
 using WebApplication19.modelo;
 
-namespace WebApplication19.vista
+namespace WebApplication19.vista.admin
 {
-    public partial class Usuarios : SecurePage
+    public partial class UsuariosAdmin : Usuarios
     {
-        public adminUsuarios()
+        public void adminUsuarios()
         {
             RolRequerido = "admin";
         }
@@ -50,31 +50,6 @@ namespace WebApplication19.vista
                 //lblError.Visible = true;
             }
 }
-        private void CargarUsuarioLogueado()
-        {
-            // Se llama a la logica para obtener el usuario logueado, se le envia el ID de SecurePage (UsuarioIdLogueado) y se obtiene el perfil del usuario logueado
-            clsUsuarios perfilUsuario = logica.UsuariosLogica.ObtenerUsuarioLogueado(this.UsuarioIdLogueado);
-
-            if(perfilUsuario != null )
-            {
-                // Se llena el label del inicio con el nombre del usuario logueado
-                lblNombreUsuario.Text = perfilUsuario.nombre;
-
-                // El repeater necesita una lista por fuerza, metemos el perfilUsuario en una lista para que funcione
-                List<clsUsuarios> listaParaRepeater = new List<clsUsuarios>();
-                listaParaRepeater.Add(perfilUsuario);
-
-                // Se enlaza el repeater con la lista que contiene el perfil del usuario logueado
-                rptBoxes.DataSource = listaParaRepeater;
-                rptBoxes.DataBind();
-            }
-            else
-            {
-                // Manejo de errores si no se encuentra el usuario logueado
-                lblNombreUsuario.Text = "Error al cargar el usuario logueado.";
-            }
-        }
-
         protected void BtnAgregar_Click(object sender, EventArgs e)
         {
             try
@@ -90,7 +65,7 @@ namespace WebApplication19.vista
                 NuevoGuardado.rol = Convert.ToString(TxtRol.Text);
 
                 // Se envia el registro a la base
-                int resultado = UsuariosLogica.AgregarUsuarios(NuevoGuardado);
+                int resultado = UsuariosLogica.AgregarUsuario(NuevoGuardado);
 
                 if (resultado > 0)
                 {
@@ -202,11 +177,6 @@ namespace WebApplication19.vista
         protected void BtnRefrescar_Click(object sender, EventArgs e)
         {
             CargarUsuarios();
-            TxtID = "";
-            TxtCorreo = "";
-            TxtNombre = "";
-            TxtPuntos = "";
-            TxtRol = "";
         }
     }
 }

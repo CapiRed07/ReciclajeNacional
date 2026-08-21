@@ -47,8 +47,16 @@ namespace WebApplication19.vista
                     Session["UsuarioRol"] = nuevoLogin.rol;
                     Session["UsuarioCorreo"] = nuevoLogin.correo;
                     Session["EstaLogueado"] = true;
-                    // Login exitoso
-                    Response.Redirect("Home.aspx");
+                    if (nuevoLogin.rol != null && nuevoLogin.rol.Equals("admin", StringComparison.OrdinalIgnoreCase))
+                    {
+
+                        Response.Redirect("~/vista/admin/HomeAdmin.aspx");
+                    }
+                    else
+                    {
+                        // Login exitoso
+                        Response.Redirect("Home.aspx");
+                    }
                 }
                 else
                 {

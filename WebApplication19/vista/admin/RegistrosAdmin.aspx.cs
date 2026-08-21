@@ -8,11 +8,11 @@ using System.Web.UI.WebControls;
 using WebApplication19.logica;
 using WebApplication19.modelo;
 
-namespace WebApplication19.vista
+namespace WebApplication19.vista.admin
 {
-    public partial class Registros : SecurePage
+    public partial class RegistrosAdmin : Registros
     {
-        public adminRegistros()
+        public void adminRegistros()
         {
             RolRequerido = "admin";
         }

@@ -9,7 +9,7 @@ using WebApplication19.modelo;
 
 namespace WebApplication19.vista
 {
-    public partial class Recompensas : System.Web.UI.Page
+    public partial class Recompensas : SecurePage
     {
         protected void Page_Load(object sender, EventArgs e)
         {

@@ -7,11 +7,11 @@ using System.Web.UI.WebControls;
 using WebApplication19.logica;
 using WebApplication19.modelo;
 
-namespace WebApplication19.vista
+namespace WebApplication19.vista.admin
 {
-    public partial class Recompensas : System.Web.UI.Page
+    public partial class RecompensasAdmin : Recompensas 
     {
-        public adminRecompensas()
+        public void adminRecompensas()
         {
             RolRequerido = "admin";
         }
@@ -75,7 +75,7 @@ namespace WebApplication19.vista
                 // Asignar valores
                 NuevoGuardado.nombre = Convert.ToString(TxtNombre.Text);
                 NuevoGuardado.descripcion = Convert.ToString(TxtDescripcion.Text);
-                NuevoGuardado.disponible = Convert.ToString(TxtCant.Text);
+                NuevoGuardado.disponible = Convert.ToInt32(TxtCant.Text);
                 NuevoGuardado.puntosnecesarios = Convert.ToInt32(TxtPuntos.Text);
 
                 // Se envia el registro a la base
@@ -135,7 +135,7 @@ namespace WebApplication19.vista
                 NuevoGuardado.id = Convert.ToInt32(TxtID.Text);
                 NuevoGuardado.nombre = Convert.ToString(TxtNombre.Text);
                 NuevoGuardado.descripcion = Convert.ToString(TxtDescripcion.Text);
-                NuevoGuardado.disponible = Convert.ToString(TxtCant.Text);
+                NuevoGuardado.disponible = Convert.ToInt32(TxtCant.Text);
                 NuevoGuardado.puntosnecesarios = Convert.ToInt32(TxtPuntos.Text);
 
                 // Se envia el registro a la base

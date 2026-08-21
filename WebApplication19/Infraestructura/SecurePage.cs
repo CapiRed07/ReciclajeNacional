@@ -49,12 +49,12 @@ namespace WebApplication19.logica
                 string rolUsuario = Session["UsuarioRol"] != null ? Session["UsuarioRol"].ToString() : string.Empty;
 
                 //Verifica si el rol del usuario coincide con el rol requerido
-                if (rolUsuario != RolRequerido)
-                {
-                    Response.Clear();
-                    Response.Redirect("~/vista/Unauthorized.aspx", true);
-                    return;
-                }
+                if (!string.Equals(rolUsuario, RolRequerido, StringComparison.OrdinalIgnoreCase))
+{
+    Response.Clear();
+    Response.Redirect("~/vista/Unauthorized.aspx", true);
+    return;
+}
             }
         }
     }

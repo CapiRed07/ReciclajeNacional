@@ -6,11 +6,11 @@ using System.Web.UI;
 using System.Web.UI.WebControls;
 using WebApplication19.logica;
 
-namespace WebApplication19.vista
+namespace WebApplication19.vista.admin
 {
-    public partial class WebForm1 : SecurePage
+    public partial class WebForm1Admin : WebForm1
     {
-        public adminHome()
+        public void adminHome()
         {
             RolRequerido = "admin";
         }

@@ -1,4 +1,4 @@
-﻿<%@ Page Language="C#" MasterPageFile="~/Layout/Site.Master" AutoEventWireup="true" CodeBehind="UsuariosAdmin.aspx.cs" Inherits="WebApplication19.vista.Usuarios" %>
+﻿<%@ Page Language="C#" MasterPageFile="~/Layout/Site.Master" AutoEventWireup="true" CodeBehind="UsuariosAdmin.aspx.cs" Inherits="WebApplication19.vista.admin.UsuariosAdmin" %>
 
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
     <link href="/CSS/Usuarios.css" rel="stylesheet" type="text/css"/>

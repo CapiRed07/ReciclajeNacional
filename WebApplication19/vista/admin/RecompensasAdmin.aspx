@@ -1,4 +1,4 @@
-﻿<%@ Page Language="C#" MasterPageFile="~/Layout/Site.Master" AutoEventWireup="true" CodeBehind="RecompensasAdmin.aspx.cs" Inherits="WebApplication19.vista.Recompensas" %>
+﻿<%@ Page Language="C#" MasterPageFile="~/Layout/Site.Master" AutoEventWireup="true" CodeBehind="RecompensasAdmin.aspx.cs" Inherits="WebApplication19.vista.admin.RecompensasAdmin" %>
 
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
     <!-- Se puede dejar vacio sino se necesita css o javascript unicos -->

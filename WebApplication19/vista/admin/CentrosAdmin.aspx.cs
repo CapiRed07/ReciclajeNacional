@@ -7,12 +7,12 @@ using System.Web.UI.WebControls;
 using WebApplication19.logica;
 using WebApplication19.modelo;
 
-namespace WebApplication19.vista
+namespace WebApplication19.vista.admin
 {
 
-    public partial class Centros : SecurePage
+    public partial class CentrosAdmin : Centros
     {
-        public adminCentros()
+        public void adminCentros()
         {
             RolRequerido = "admin";
         }
@@ -98,7 +98,7 @@ namespace WebApplication19.vista
                 // Asignar valores
                 NuevoGuardado.nombre = Convert.ToString(TxtNombre.Text);
                 NuevoGuardado.provincia = Convert.ToString(ddlProvincia.SelectedValue);
-                NuevoGuardado.direccion = Convert.ToInt32(TxtDireccion.Text);
+                NuevoGuardado.direccion = Convert.ToString(TxtDireccion.Text);
                 NuevoGuardado.horario = Convert.ToString(TxtHorario.Text);
 
                 // Se envia el registro a la base
@@ -130,7 +130,7 @@ namespace WebApplication19.vista
                 NuevoBorrado.id = Convert.ToInt32(TxtID.Text);
 
                 // Enviar registro a base
-                int resultado = CentrosLogica.BorrarCentros(NuevoBorrado);
+                int resultado = CentrosLogica.BorrarCentro(NuevoBorrado);
 
                 if (resultado > 0)
                 {
@@ -158,7 +158,7 @@ namespace WebApplication19.vista
                 NuevoGuardado.id = Convert.ToInt32(TxtID.Text);
                 NuevoGuardado.nombre = Convert.ToString(TxtNombre.Text);
                 NuevoGuardado.provincia = Convert.ToString(ddlProvincia.SelectedValue);
-                NuevoGuardado.direccion = Convert.ToInt32(TxtDireccion.Text);
+                NuevoGuardado.direccion = Convert.ToString(TxtDireccion.Text);
                 NuevoGuardado.horario = Convert.ToString(TxtHorario.Text);
 
                 // Se envia el registro a la base
