@@ -22,6 +22,12 @@ namespace WebApplication19.vista
                 CargarUsuarioLogueado();
             }
         }
+
+        private void CargarUsuarios()
+        {
+            GridUsuarios.DataSource = UsuariosLogica.ObtenerUsuarios();
+            GridUsuarios.DataBind();
+        }
         private void CargarComboProvincia()
         {
             try
@@ -40,7 +46,7 @@ namespace WebApplication19.vista
             }
             catch (Exception ex)
             {
-                //lblError.Text = "Ocurrió un error al cargar el catálogo de materiales.";
+                //lblError.Text = "Ocurrió un error al cargar el catálogo de Usuarios.";
                 //lblError.Visible = true;
             }
 }
@@ -71,27 +77,136 @@ namespace WebApplication19.vista
 
         protected void BtnAgregar_Click(object sender, EventArgs e)
         {
+            try
+            {
+                // Se instancia el objeto
+                clsUsuarios NuevoGuardado = new clsUsuarios();
 
+                // Asignar valores
+                NuevoGuardado.nombre = Convert.ToString(TxtNombre.Text);
+                NuevoGuardado.correo = Convert.ToString(TxtCorreo.Text);
+                NuevoGuardado.provincia = Convert.ToString(ddlProvincia.SelectedValue);
+                NuevoGuardado.puntos = Convert.ToInt32(TxtPuntos.Text);
+                NuevoGuardado.rol = Convert.ToString(TxtRol.Text);
+
+                // Se envia el registro a la base
+                int resultado = UsuariosLogica.AgregarUsuarios(NuevoGuardado);
+
+                if (resultado > 0)
+                {
+                    // mensajes de exito
+                }
+                else
+                {
+                    // mensaje de error
+                }
+            }
+            catch (Exception ex)
+            {
+                // Manejo de error, formato de los datos
+            }
         }
 
         protected void BtnEliminar_Click(object sender, EventArgs e)
         {
+            try
+            {
+                // Instancia del objeto
+                clsUsuarios NuevoBorrado = new clsUsuarios();
 
+                // Se le pasa el id del registro
+                NuevoBorrado.id = Convert.ToInt32(TxtID.Text);
+
+                // Enviar registro a base
+                int resultado = UsuariosLogica.BorrarUsuarios(NuevoBorrado);
+
+                if (resultado > 0)
+                {
+                    // mensajes de exito
+                }
+                else
+                {
+                    // mensaje de error
+                }
+            }
+            catch (Exception ex)
+            {
+                // Manejo de error, formato de los datos
+            }
         }
 
         protected void BtnActualizar_Click(object sender, EventArgs e)
         {
+            try
+            {
+                // Se instancia el objeto
+                clsUsuarios NuevoGuardado = new clsUsuarios();
 
+                // Se convierten los valores de los ddl a enteros
+                NuevoGuardado.id = Convert.ToInt32(TxtID.Text);
+                NuevoGuardado.nombre = Convert.ToString(TxtNombre.Text);
+                NuevoGuardado.correo = Convert.ToString(TxtCorreo.Text);
+                NuevoGuardado.provincia = Convert.ToString(ddlProvincia.SelectedValue);
+                NuevoGuardado.puntos = Convert.ToInt32(TxtPuntos.Text);
+                NuevoGuardado.rol = Convert.ToString(TxtRol.Text);
+
+                // Se envia el registro a la base
+                int resultado = UsuariosLogica.ModificarUsuarios(NuevoGuardado);
+
+                if (resultado > 0)
+                {
+                    // mensajes de exito
+                }
+                else
+                {
+                    // mensaje de error
+                }
+            }
+            catch (Exception ex)
+            {
+                // Manejo de error, formato de los datos
+            }
         }
 
         protected void BtnConsultar_Click(object sender, EventArgs e)
         {
+            if (!int.TryParse(TxtID.Text, out int parsedID))
+            {
+                // Manejo de errores
+                // Agregar lbl
+                return;
+            }
 
+            // Inicializacion limpia con objeto id
+            clsUsuarios NuevaConsulta = new clsUsuarios { id = parsedID };
+
+            // Consulta a la capa de logica
+            clsUsuarios Consulta = UsuariosLogica.ConsultaUsuarioporID(NuevaConsulta);
+
+            // Validacion de datos y asignacion al GridView
+            if (Consulta != null)
+            {
+                // Lista para que gridview lo pueda usar
+                GridUsuarios.DataSource = new List<clsUsuarios> { Consulta };
+                GridUsuarios.DataBind();
+            }
+            else
+            {
+                // Limpiar el grid sino hay resultados
+                GridUsuarios.DataSource = null;
+                GridUsuarios.DataBind();
+                // lbl mensaje "no se encontro"
+            }
         }
 
         protected void BtnRefrescar_Click(object sender, EventArgs e)
         {
-
+            CargarUsuarios();
+            TxtID = "";
+            TxtCorreo = "";
+            TxtNombre = "";
+            TxtPuntos = "";
+            TxtRol = "";
         }
     }
 }
