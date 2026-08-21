@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Data;
 using System.Data.SqlClient;
 using System.Linq;
 using System.Web;
@@ -139,5 +140,59 @@ namespace WebApplication19.logica
                     Conn.Dispose();
                 }
             }
+        }
+        // Para consultar registros especificos, todos pueden acceder
+        public static clsRegistros ConsultaRegistroporID(clsRegistros RegistroConsultado)
+        {
+            clsRegistros RegistroConsulta = null; // Sino encuentra, devuelve en nulo
+            SqlConnection Conn = new SqlConnection();
+
+            try
+            {
+                using (Conn = modelo.DBconn.obtenerConexion())
+                {
+                    // Stored procedure
+                    SqlCommand cmd = new SqlCommand("ConsultarRegistroReciclajeporID", Conn)
+                    {
+                        CommandType = CommandType.StoredProcedure
+                    };
+
+                    // Se le pasa ID como parametro para buscar el registro a consultar
+                    cmd.Parameters.Add(new SqlParameter("@RegistroID", RegistroConsultado.id));
+
+                    // Se llama al reader
+                    using (SqlDataReader reader = cmd.ExecuteReader())
+                    {
+                        //If, solo buscamos uno en este caso.
+                        if (reader.Read())
+                        {
+                            RegistroConsulta = new clsRegistros
+                            {
+                                id = reader.GetInt32(0),
+                                fkusuario = reader.GetInt32(1),
+                                fkmaterial = reader.GetInt32(2),
+                                fkcentro = reader.GetInt32(3),
+                                cantidadkg = reader.GetInt32(4),
+                                fecha = reader.GetDateTime(5),
+                                puntosobtenidos = reader.GetInt32(6)
+                            };
+                        }
+                    }
+                }
+            }
+            catch (Exception Ex)
+            {
+                // Manejo de errores
+                return null;
+            }
+            finally
+            {
+                if (Conn != null)
+                {
+                    Conn.Close();
+                    Conn.Dispose();
+                }
+            }
+            return RegistroConsulta;
         }
     }
