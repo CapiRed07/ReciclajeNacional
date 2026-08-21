@@ -112,6 +112,7 @@
     <Compile Include="logica\MasterLogica.cs" />
     <Compile Include="logica\MaterialesLogica.cs" />
     <Compile Include="logica\UsuariosLogica.cs" />
+    <Compile Include="modelo\clsCentros.cs" />
     <Compile Include="modelo\clsUsuarios.cs" />
     <Compile Include="modelo\cls_reciclaje.cs" />
     <Compile Include="modelo\cls_tipo.cs" />
