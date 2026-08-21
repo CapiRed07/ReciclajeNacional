@@ -46,5 +46,30 @@ namespace WebApplication19.vista
                 lblNombreUsuario.Text = "Error al cargar el usuario logueado.";
             }
         }
+
+        protected void BtnAgregar_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        protected void BtnEliminar_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        protected void BtnActualizar_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        protected void BtnConsultar_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        protected void BtnRefrescar_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }

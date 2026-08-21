@@ -108,6 +108,58 @@ namespace WebApplication19.logica
             }
             return retorno;
         }
+        // Procedimiento para obtener todas las filas, los usuarios pueden usarlo libremente
+        public static List<clsUsuarios> ObtenerUsuarios()
+        {
+            SqlConnection Conn = new SqlConnection();
+
+            // Se crea una lista para mantener a todos los Usuarios
+            List<clsUsuarios> listaUsuarios = new List<clsUsuarios>();
+            // Fuera del try para retornarla si hay error
+            try
+            {
+                using (Conn = modelo.DBconn.obtenerConexion())
+                {
+                    //Stored procedure
+                    SqlCommand cmd = new SqlCommand("ConsultarUsuario", Conn)
+                    {
+                        CommandType = System.Data.CommandType.StoredProcedure // Tipo stored procedure
+                    };
+
+                    using (SqlDataReader reader = cmd.ExecuteReader())
+                    {
+                        // While en vez de if para leer todas las filas
+                        while (reader.Read())
+                        {
+                            clsUsuarios Usuarios = new clsUsuarios
+                            {
+                                id = reader.GetInt32(0),
+                                nombre = reader.GetString(1),
+                                correo = reader.GetString(2),
+                                provincia = reader.GetString(3),
+                                puntos = reader.GetInt32(4),
+                                rol = reader.GetString(6)
+                            };
+
+                            // Pasamos los datos de cada material a la lista
+                            listaUsuarios.Add(Usuarios);
+                        }
+
+                        // Los enviamos para el despliegue
+                        return listaUsuarios;
+                    }
+                }
+            }
+            catch (SqlException Ex)
+            {
+                // Manejo de errores.
+                return listaUsuarios;
+            }
+            finally
+            {
+                Conn.Close();
+            }
+        }
         // Metodo para validar el login de un usuario
         public static bool ValidarLogin(clsUsuarios log)
         {

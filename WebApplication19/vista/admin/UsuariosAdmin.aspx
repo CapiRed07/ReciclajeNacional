@@ -9,29 +9,37 @@
             <h1>Usuario</h1>
         </div>
 <div>
-    
-    <asp:Label ID="lblNombreUsuario" runat="server" Text="" ForeColor="Red"></asp:Label>
-    <asp:Repeater ID="rptBoxes" runat="server">
-        <HeaderTemplate>
-            <!-- Abre el contenedor principal una sola vez -->
-            <div class="box-container"> 
-        </HeaderTemplate>
-        
-        <ItemTemplate>
-            <!-- Esto se repetirá para cada fila de SQL Server -->
-            <div class="data-box">
-                <h3><%# Eval("Nombre") %></h3>
-                <p><strong>Email:</strong> <%# Eval("Correo") %></p>
-                <p><strong>Provincia:</strong> <%# Eval("Provincia") %></p>
-                <p><strong>Rol:</strong> <%# Eval("Rol") %></p>
-                <p class="points-badge"><strong>Puntos:</strong> <%# Eval("Puntos") %></p>
-            </div>
-        </ItemTemplate>
-
-        <FooterTemplate>
-            </div> 
-        </FooterTemplate>
-    </asp:Repeater>
+    <asp:GridView ID="GridUsuarios" runat="server"></asp:GridView>
+    <br />
+    <asp:Label ID="LblID" runat="server" Text="Ingrese un ID"></asp:Label>
+    <br />
+    <asp:TextBox ID="TxtID" runat="server"></asp:TextBox>
+    <br />
+    <asp:Label ID="LblNombre" runat="server" Text="Nombre"></asp:Label>
+    <br />
+    <asp:TextBox ID="TxtNombre" runat="server"></asp:TextBox>
+    <br />
+    <asp:Label ID="LblCorreo" runat="server" Text="Correo"></asp:Label>
+    <br />
+    <asp:TextBox ID="TxtCorreo" runat="server"></asp:TextBox>
+    <br />
+    <asp:Label ID="LblProvincia" runat="server" Text="Provincia"></asp:Label>
+    <br />
+    <asp:DropDownList ID="ddlProvincia" runat="server"></asp:DropDownList>
+    <br />
+    <asp:Label ID="LblRol" runat="server" Text="Rol"></asp:Label>
+    <br />
+    <asp:TextBox ID="TxtRol" runat="server"></asp:TextBox>
+    <br />
+    <asp:Label ID="LblPuntos" runat="server" Text="Puntos"></asp:Label>
+    <br />
+    <asp:TextBox ID="TxtPuntos" runat="server"></asp:TextBox>
+    <br />
+    <asp:Button ID="BtnAgregar" runat="server" Text="Agregar" OnClick="BtnAgregar_Click" />
+    <asp:Button ID="BtnEliminar" runat="server" Text="Eliminar" OnClick="BtnEliminar_Click" />
+    <asp:Button ID="BtnActualizar" runat="server" Text="Actualizar" OnClick="BtnActualizar_Click" />
+    <asp:Button ID="BtnConsultar" runat="server" Text="Consultar Por ID" OnClick="BtnConsultar_Click" />
+    <asp:Button ID="BtnRefrescar" runat="server" Text="Refrescar" OnClick="BtnRefrescar_Click" />
 </div>
 
 </asp:Content>
