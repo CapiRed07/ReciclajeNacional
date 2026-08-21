@@ -24,6 +24,42 @@ namespace WebApplication19.vista
         protected global::System.Web.UI.WebControls.GridView GridRegistros;
 
         /// <summary>
+        /// LblFKMaterial control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label LblFKMaterial;
+
+        /// <summary>
+        /// ddlFKMaterial control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.DropDownList ddlFKMaterial;
+
+        /// <summary>
+        /// LblCentros control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label LblCentros;
+
+        /// <summary>
+        /// ddlFKCentros control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.DropDownList ddlFKCentros;
+
+        /// <summary>
         /// LblID control.
         /// </summary>
         /// <remarks>
