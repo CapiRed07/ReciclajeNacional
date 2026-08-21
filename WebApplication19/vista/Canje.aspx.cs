@@ -65,7 +65,7 @@ namespace WebApplication19.vista
                 NuevoGuardado.fecha = Convert.ToDateTime(TxtFecha.Text);
                 NuevoGuardado.cantidad = Convert.ToInt32(TxtCant.Text);
                 // Los puntos obtenidos se deben calcular
-                NuevoGuardado.puntosutilizados = CanjeLogica.CalcularPuntosCanje(NuevoGuardado.fkrecompensa);
+                NuevoGuardado.puntosutilizados = CanjeLogica.CalcularPuntosCanje(NuevoGuardado.fkrecompensa, NuevoGuardado.cantidad);
 
                 // Se envia el canje a la base
                 int resultado = CanjeLogica.AgregarCanje(NuevoGuardado);
