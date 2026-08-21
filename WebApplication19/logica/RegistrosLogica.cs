@@ -235,4 +235,23 @@ namespace WebApplication19.logica
             }
             return retorno;
         }
+
+        // Metodo para calcular puntos obtenidos
+        public static int CalcularPuntos(int idMaterial, int cantidadKg)
+        {
+            // Reutilizamos fetcher para traer la lista de materiales actual
+            List<clsMateriales> listaMateriales = new List<clsMateriales>();
+
+            // Se busca el material que coincida con la FK seleccionada
+            clsMateriales materialSeleccionado = listaMateriales.FirstOrDefault(m => m.id == idMaterial);
+
+            if(materialSeleccionado != null)
+            {
+                // Multiplicar kilos por puntos del material
+                // Se convierte a int, todo el sistema de puntos es de enteros
+                return Convert.ToInt32(cantidadKg * materialSeleccionado.puntosporkg);
+            }
+            // En caso de error devuelve 0 puntos
+            return 0;
+        }
     }
