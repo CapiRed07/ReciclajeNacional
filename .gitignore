@@ -11,3 +11,8 @@
 ## Visual Studio 2015/2017/2019/2022 Cache Folders
 .vs/
 
+## Bin and Objects
+/[Ww]eb[Aa]pplication19/bin/
+/[Ww]eb[Aa]pplication19/obj/
+
+
