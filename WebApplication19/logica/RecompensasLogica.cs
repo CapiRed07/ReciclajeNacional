@@ -48,4 +48,56 @@ namespace WebApplication19.logica
             return retorno;
         }
     }
+    // Procedimiento para obtener todas las filas, los usuarios pueden usarlo libremente
+        public static List<clsRecompensas> ObtenerRecompensas()
+        {
+            SqlConnection Conn = new SqlConnection();
+
+            // Se crea una lista para mantener a todos los recompensas
+            List<clsRecompensas> listaRecompensas = new List<clsRecompensas>();
+            // Fuera del try para retornarla si hay error
+            try
+            {
+                using (Conn = modelo.DBconn.obtenerConexion())
+                {
+                    //Stored procedure
+                    SqlCommand cmd = new SqlCommand("ConsultarRecompensa", Conn)
+                    {
+                        CommandType = System.Data.CommandType.StoredProcedure // Tipo stored procedure
+                    };
+
+                    using (SqlDataReader reader = cmd.ExecuteReader())
+                    {
+                        // While en vez de if para leer todas las filas
+                        while (reader.Read())
+                        {
+                            clsRecompensas recompensas = new clsRecompensas
+                            {
+                                id = reader.GetInt32(0),
+                                nombre = reader.GetString(1),
+                                descripcion = reader.GetString(2),
+                                puntosnecesarios = reader.GetInt32(3),
+                                disponible = reader.GetInt32(4)
+                            };
+
+                            // Pasamos los datos de cada recompensa a la lista
+                            listaRecompensas.Add(recompensas);
+                        }
+
+                        // Los enviamos para el despliegue
+                        return listaRecompensas;
+                    }
+                }
+            }
+            catch (SqlException Ex)
+            {
+                // Manejo de errores.
+                return listaRecompensas;
+            }
+            finally
+            {
+                Conn.Close();
+            }
+        }
+    }
 }
