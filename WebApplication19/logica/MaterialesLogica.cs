@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Data;
 using System.Data.SqlClient;
 using System.Linq;
 using System.Web;
@@ -129,6 +130,56 @@ namespace WebApplication19.logica
                 Conn.Close();
                 Conn.Dispose();
             }
+        }
+        public static clsMateriales ConsultaMaterialporID(clsMateriales MaterialConsultado)
+        {
+            clsMateriales MaterialConsulta = null; // Sino encuentra, devuelve en nulo
+            SqlConnection Conn = new SqlConnection();
+
+            try
+            {
+                using (Conn = modelo.DBconn.obtenerConexion())
+                {
+                    // Stored procedure
+                    SqlCommand cmd = new SqlCommand("ConsultarMaterialporID", Conn)
+                    {
+                        CommandType = CommandType.StoredProcedure
+                    };
+
+                    // Se le pasa ID como parametro para buscar el material a consultar
+                    cmd.Parameters.Add(new SqlParameter("MaterialID", MaterialConsultado.id));
+
+                    // Se llama al reader
+                    using (SqlDataReader reader = cmd.ExecuteReader())
+                    {
+                        //If, solo buscamos uno en este caso.
+                        if (reader.Read())
+                        {
+                            MaterialConsulta = new clsMateriales
+                            {
+                                id = reader.GetInt32(0),
+                                nombre = reader.GetString(1),
+                                descripcion = reader.GetString(2),
+                                puntosporkg = reader.GetDecimal(3)
+                            };
+                        }
+                    }
+                }
+            }
+            catch (Exception Ex)
+            {
+                // Manejo de errores
+                return null;
+            }
+            finally
+            {
+                if(Conn != null)
+                {
+                    Conn.Close();
+                    Conn.Dispose();
+                }
+            }
+            return MaterialConsulta;
         }
     }
 }
