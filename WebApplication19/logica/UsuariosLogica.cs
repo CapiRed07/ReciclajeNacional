@@ -24,7 +24,7 @@ namespace WebApplication19.logica
                     // Procedimiento almacenado para consultar un usuario por su ID
                     SqlCommand cmd = new SqlCommand("ConsultarUsuarioporID", Conn)
                     {
-                        it pCommandType = CommandType.StoredProcedure
+                        CommandType = CommandType.StoredProcedure
                     };
                     // Agregamos el parámetro del ID del usuario al comando
                     cmd.Parameters.Add(new SqlParameter("@UsuarioID", idUsuarioLogueado));

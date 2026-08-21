@@ -37,7 +37,7 @@ namespace WebApplication19.vista
 
                 // Se convierten los datos numericos de los textboxes
                 NuevoGuardado.cantidadkg = Convert.ToInt32(TxtKg.Text);
-                NuevoGuardado.fecha = TxtFecha.Text;
+                NuevoGuardado.fecha = Convert.ToDateTime(TxtFecha.Text);
                 // Los puntos obtenidos se deben calcular
                 NuevoGuardado.puntosobtenidos = RegistrosLogica.CalcularPuntos(NuevoGuardado.fkmaterial, NuevoGuardado.cantidadkg);
 
@@ -73,7 +73,7 @@ namespace WebApplication19.vista
 
                 // Se convierten los datos numericos de los textboxes
                 NuevoModificado.cantidadkg = Convert.ToInt32(TxtKg.Text);
-                NuevoModificado.fecha = TxtFecha.Text;
+                NuevoModificado.fecha = Convert.ToDateTime(TxtFecha.Text);
                 // Los puntos obtenidos se deben calcular
 
                 // Se envia el registro a la base

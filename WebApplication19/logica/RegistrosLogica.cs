@@ -51,7 +51,7 @@ namespace WebApplication19.logica
             }
             return retorno;
         }
-    }
+    
     // Procedimiento para obtener todas las filas
         public static List<clsRegistros> ObtenerRegistros()
         {
@@ -246,7 +246,7 @@ namespace WebApplication19.logica
             // Se busca el material que coincida con la FK seleccionada
             clsMateriales materialSeleccionado = listaMateriales.FirstOrDefault(m => m.id == idMaterial);
 
-            if(materialSeleccionado != null)
+            if (materialSeleccionado != null)
             {
                 // Multiplicar kilos por puntos del material
                 // Se convierte a int, todo el sistema de puntos es de enteros
@@ -256,3 +256,4 @@ namespace WebApplication19.logica
             return 0;
         }
     }
+}
