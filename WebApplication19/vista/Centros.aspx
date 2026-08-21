@@ -6,7 +6,14 @@
 
 <asp:Content ID="Content2" ContentPlaceHolderID="MainContent" runat="server">
     <div>
-
+        <asp:GridView ID="GridCentros" runat="server"></asp:GridView>
+        <br />
+        <asp:Label ID="LblID" runat="server" Text="Ingrese un ID"></asp:Label>
+        <br />
+        <asp:TextBox ID="TxtID" runat="server"></asp:TextBox>
+        <br />
+        <asp:Button ID="btnConsultar" runat="server" Text="Consultar por ID" />
+        <asp:Button ID="btnRefrescar" runat="server" Text="Refrescar" />
     </div>
 </asp:Content>
 
