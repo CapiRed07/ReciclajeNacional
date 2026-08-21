@@ -59,7 +59,37 @@ namespace WebApplication19.vista
         }
         protected void BtnActualizar_Click(object sender, EventArgs e)
         {
+            try
+            {
+                // Se instancia el objeto
+                clsRegistros NuevoModificado = new clsRegistros();
 
+                // Se convierten los valores de los ddl a enteros
+                NuevoModificado.fkusuario = UsuarioIdLogueado;
+                NuevoModificado.fkmaterial = Convert.ToInt32(ddlFKMaterial.SelectedValue);
+                NuevoModificado.fkcentro = Convert.ToInt32(ddlFKCentros.SelectedValue);
+
+                // Se convierten los datos numericos de los textboxes
+                NuevoModificado.cantidadkg = Convert.ToInt32(TxtKg.Text);
+                NuevoModificado.fecha = TxtFecha.Text;
+                // Los puntos obtenidos se deben calcular
+
+                // Se envia el registro a la base
+                int resultado = RegistrosLogica.ModificarRegistros(NuevoModificado);
+
+                if (resultado > 0)
+                {
+                    // mensajes de exito
+                }
+                else
+                {
+                    // mensaje de error
+                }
+            }
+            catch (Exception ex)
+            {
+                // Manejo de error, formato de los datos
+            }
         }
 
         protected void BtnBorrar_Click(object sender, EventArgs e)
