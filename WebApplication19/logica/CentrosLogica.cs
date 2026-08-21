@@ -74,8 +74,9 @@ namespace WebApplication19.logica
                             {
                                 id = reader.GetInt32(0),
                                 nombre = reader.GetString(1),
-                                descripcion = reader.GetString(2),
-                                puntosporkg = reader.GetDecimal(3),
+                                provincia = reader.GetString(2),
+                                direccion = reader.GetString(3),
+                                horario = reader.GetString(4),
                             };
 
                             // Pasamos los datos de cada material a la lista
