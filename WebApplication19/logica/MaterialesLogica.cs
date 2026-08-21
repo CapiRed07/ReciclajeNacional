@@ -10,6 +10,7 @@ namespace WebApplication19.logica
 {
     public class MaterialesLogica
     {
+        // Para agregar materiales nuevos al sistema, pensada para administradores
         public static int AgregarMateriales(clsMateriales NuevoMaterial)
         {
             int retorno = 0;
@@ -132,6 +133,7 @@ namespace WebApplication19.logica
                 Conn.Dispose();
             }
         }
+        // Para consultar materiales especificos, todos pueden acceder
         public static clsMateriales ConsultaMaterialporID(clsMateriales MaterialConsultado)
         {
             clsMateriales MaterialConsulta = null; // Sino encuentra, devuelve en nulo
