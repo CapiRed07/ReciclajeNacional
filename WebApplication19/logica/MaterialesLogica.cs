@@ -182,5 +182,40 @@ namespace WebApplication19.logica
             }
             return MaterialConsulta;
         }
+        // Funcion para modificar materiales, pensada para administradores.
+        public static int ModificarMateriales(clsMateriales MaterialModificar)
+        {
+            int retorno = 0; // 0 sino modifica nada
+
+            try
+            {
+                using (SqlConnection Conn = modelo.DBconn.obtenerConexion())
+                {
+                    // Stored procedure
+                    SqlCommand cmd = new SqlCommand("ModificarMaterial", Conn)
+                    {
+                        CommandType = CommandType.StoredProcedure
+                    };
+
+                    // Variables a modificar como parametros
+                    cmd.Parameters.Add(new SqlParameter("@MaterialID", MaterialModificar.id)); // Este es el identificador, no se cambia, busca
+                    cmd.Parameters.Add(new SqlParameter("@Nombre", MaterialModificar.nombre));
+                    cmd.Parameters.Add(new SqlParameter("Descripcion", MaterialModificar.descripcion));
+                    cmd.Parameters.Add(new SqlParameter("PuntosporKG", MaterialModificar.puntosporkg));
+
+                    // Conexion abierta y ejecucion
+                    Conn.Open();
+                    retorno = cmd.ExecuteNonQuery();
+
+                    return retorno; //Si modifica, se cambia a 1
+                }
+            }
+            catch (Exception Ex)
+            {
+                // Manejo de errores
+                retorno = 0;
+            }
+            return retorno;
+        }
     }
 }
