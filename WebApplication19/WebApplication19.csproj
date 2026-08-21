@@ -118,6 +118,7 @@
     <Compile Include="Infraestructura\SecurePage.cs">
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
+    <Compile Include="logica\MantenimientoLogica.cs" />
     <Compile Include="logica\MasterLogica.cs" />
     <Compile Include="logica\MaterialesLogica.cs" />
     <Compile Include="logica\RecompensasLogica.cs" />

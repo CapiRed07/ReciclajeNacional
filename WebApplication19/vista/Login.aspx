@@ -17,6 +17,12 @@
             <br />
             <asp:Label ID="lblError" runat="server" ForeColor="Red" Font-Bold="true" Visible="false"></asp:Label>
             <br />
+            <asp:Label ID="LblCredentialsA" runat="server" Text="Credenciales: maria@email.com, 123 (admin)"></asp:Label>
+            <br />
+            <asp:Label ID="LblCredentialsB" runat="server" Text="Credenciales: juan@email.com, 123 (usuario)"></asp:Label>
+            <br />
             <asp:Button ID="btnLogin" runat="server" Text="Iniciar Sesión" OnClick="btnLogin_Click" />
+            <br />
+
         </div>
 </asp:Content>

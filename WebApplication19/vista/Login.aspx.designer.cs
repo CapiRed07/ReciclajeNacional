@@ -60,6 +60,24 @@ namespace WebApplication19.vista
         protected global::System.Web.UI.WebControls.Label lblError;
 
         /// <summary>
+        /// LblCredentialsA control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label LblCredentialsA;
+
+        /// <summary>
+        /// LblCredentialsB control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label LblCredentialsB;
+
+        /// <summary>
         /// btnLogin control.
         /// </summary>
         /// <remarks>

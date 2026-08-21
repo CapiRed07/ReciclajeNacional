@@ -68,4 +68,12 @@
     </div>
 
 </div>
+    <div>
+
+        <asp:Button ID="BtnInsert" runat="server" Text="Datos de prueba" OnClick="BtnInsert_Click" />
+        <asp:Button ID="BtnClean" runat="server" Text="Limpiar todos los datos" OnClick="BtnClean_Click" />
+        <asp:Button ID="BtnLogout" runat="server" Text="Cerrar Sesion" OnClick="BtnLogout_Click" />
+        <br />
+        <asp:Label ID="LblMensaje" runat="server" visible="false" Text=""></asp:Label>
+    </div>
 </asp:Content>
