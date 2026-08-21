@@ -14,7 +14,10 @@ namespace WebApplication19.vista
         {
 
         }
+        protected void BtnGuardar_Click(object sender, EventArgs e)
+        {
 
+        }
         protected void BtnActualizar_Click(object sender, EventArgs e)
         {
 

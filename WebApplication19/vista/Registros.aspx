@@ -28,7 +28,7 @@
         <br />
         <asp:TextBox ID="TxtFecha" runat="server" TextMode="date"></asp:TextBox>
         <br />
-        <asp:Button ID="BtnGuardar" runat="server" Text="Guardar" OnClick="BtnActualizar_Click" />
+        <asp:Button ID="BtnGuardar" runat="server" Text="Guardar" OnClick="BtnGuardar_Click" />
         <asp:Button ID="BtnBorrar" runat="server" Text="Borrar" OnClick="BtnBorrar_Click" />
         <asp:Button ID="BtnActualizar" runat="server" Text="Actualizar" OnClick="BtnActualizar_Click" />
         <asp:Button ID="BtnConsultar" runat="server" Text="Consultar por ID" OnClick="BtnConsultar_Click" />
