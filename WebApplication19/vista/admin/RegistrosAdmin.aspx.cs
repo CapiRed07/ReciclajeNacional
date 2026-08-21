@@ -50,8 +50,8 @@ namespace WebApplication19.vista.admin
             }
             catch (Exception ex)
             {
-                //lblError.Text = "Ocurrió un error al cargar el catálogo de Usuarios.";
-                //lblError.Visible = true;
+                LblMensaje.Text = "Ocurrió un error al cargar el catálogo de Usuarios.";
+                LblMensaje.Visible = true;
             }
         }
         private void CargarComboMateriales()
@@ -78,8 +78,8 @@ namespace WebApplication19.vista.admin
             }
             catch (Exception ex)
             {
-                //lblError.Text = "Ocurrió un error al cargar el catálogo de materiales.";
-                //lblError.Visible = true;
+                LblMensaje.Text = "Ocurrió un error al cargar el catálogo de materiales.";
+                LblMensaje.Visible = true;
             }
         }
         private void CargarComboCentros()
@@ -101,8 +101,8 @@ namespace WebApplication19.vista.admin
             }
             catch (Exception ex)
             {
-                //lblError.Text = "Ocurrió un error al cargar el catálogo de centros.";
-                //lblError.Visible = true;
+                LblMensaje.Text = "Ocurrió un error al cargar el catálogo de centros.";
+                LblMensaje.Visible = true;
             }
         }
         protected void BtnGuardar_Click(object sender, EventArgs e)
@@ -128,16 +128,19 @@ namespace WebApplication19.vista.admin
 
                 if (resultado > 0)
                 {
-                    // mensajes de exito
+                    LblMensaje.Text = "Registro guardado con exito.";
+                    LblMensaje.Visible = true;
                 }
                 else
                 {
-                    // mensaje de error
+                    LblMensaje.Text = "No se pudo guardar al registro.";
+                    LblMensaje.Visible = true;
                 }
             }
             catch (Exception ex)
             {
-                // Manejo de error, formato de los datos
+                LblMensaje.Text = "Asegúrese de dar los datos de forma correcta (los ID son enteros, no use caracteres)";
+                LblMensaje.Visible = true;
             }
             CargarRegistros();
         }
@@ -164,16 +167,19 @@ namespace WebApplication19.vista.admin
 
                 if (resultado > 0)
                 {
-                    // mensajes de exito
+                    LblMensaje.Text = "Registro modificado con exito.";
+                    LblMensaje.Visible = true;
                 }
                 else
                 {
-                    // mensaje de error
+                    LblMensaje.Text = "No se pudo modificar el registro.";
+                    LblMensaje.Visible = true;
                 }
             }
             catch (Exception ex)
             {
-                // Manejo de error, formato de los datos
+                LblMensaje.Text = "Asegúrese de dar los datos de forma correcta (los ID son enteros, no use caracteres)";
+                LblMensaje.Visible = true;
             }
             CargarRegistros();
         }
@@ -194,16 +200,24 @@ namespace WebApplication19.vista.admin
 
                 if (resultado > 0)
                 {
-                    // mensajes de exito
+                    LblMensaje.Text = "Registro borrado con exito.";
+                    LblMensaje.Visible = true;
                 }
                 else
                 {
-                    // mensaje de error
+                    if (resultado == -2)
+                    {
+                        LblMensaje.Text = "No puede borrar el registro, ya que tiene asignado algo, borre sus asignaciones primero";
+                        LblMensaje.Visible = true;
+                    }
+                    LblMensaje.Text = "No se pudo borrar el registro.";
+                    LblMensaje.Visible = true;
                 }
             }
             catch (Exception ex)
             {
-                // Manejo de error, formato de los datos
+                LblMensaje.Text = "Asegúrese de dar los datos de forma correcta (los ID son enteros, no use caracteres)";
+                LblMensaje.Visible = true;
             }
             CargarRegistros();
         }
@@ -235,7 +249,7 @@ namespace WebApplication19.vista.admin
                 // Limpiar el grid sino hay resultados
                 GridRegistros.DataSource = null;
                 GridRegistros.DataBind();
-                // lbl mensaje "no se encontro"
+                LblMensaje.Text = "No se encontro ese registro. Esta seguro de que existe el ID?";
             }
         }
 
