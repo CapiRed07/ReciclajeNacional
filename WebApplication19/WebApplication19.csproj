@@ -112,6 +112,7 @@
     </Compile>
     <Compile Include="logica\MasterLogica.cs" />
     <Compile Include="logica\MaterialesLogica.cs" />
+    <Compile Include="logica\RecompensasLogica.cs" />
     <Compile Include="logica\UsuariosLogica.cs" />
     <Compile Include="modelo\clsCentros.cs" />
     <Compile Include="modelo\clsRecompensas.cs" />
