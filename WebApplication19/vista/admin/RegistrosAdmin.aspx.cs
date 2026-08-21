@@ -31,7 +31,7 @@ namespace WebApplication19.vista
             GridRegistros.DataBind();
         }
 
-        private void CargarUsuarios()
+        private void CargarComboUsuarios()
         {
             try
             {

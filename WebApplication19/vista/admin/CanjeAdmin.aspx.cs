@@ -29,6 +29,29 @@ namespace WebApplication19.vista
             GridCanje.DataSource = CanjeLogica.ObtenerCanje();
             GridCanje.DataBind();
         }
+        private void CargarComboUsuarios()
+        {
+            try
+            {
+                var listaUsuarios = UsuariosLogica.ObtenerUsuarios();
+
+                ddlFKUsuarios.DataSource = listaUsuarios;
+
+                ddlFKUsuarios.DataTextField = "nombre";
+
+                ddlFKUsuarios.DataValueField = "id";
+
+                ddlFKUsuarios.DataBind();
+
+                ddlFKUsuarios.Items.Insert(0, new ListItem("-- Seleccione un usuario --", "0"));
+            }
+            catch (Exception ex)
+            {
+                //lblError.Text = "Ocurrió un error al cargar el catálogo de Usuarios.";
+                //lblError.Visible = true;
+            }
+        }
+
         private void CargarComboRecompensas()
         {
             try
@@ -66,7 +89,7 @@ namespace WebApplication19.vista
                 clsCanje NuevoGuardado = new clsCanje();
 
                 // Se convierten los valores de los ddl a enteros
-                NuevoGuardado.fkusuario = UsuarioIdLogueado;
+                NuevoGuardado.fkusuario = Convert.ToString(ddlFKUsuarios.SelectedValue);
                 NuevoGuardado.fkrecompensa = Convert.ToInt32(ddlFKRecompensas.SelectedValue);
 
                 // Se convierten los datos numericos de los textboxes
@@ -101,7 +124,7 @@ namespace WebApplication19.vista
 
                 // Se convierten los valores de los ddl a enteros
                 NuevoModificado.id = Convert.ToInt32(TxtID.Text);
-                NuevoModificado.fkusuario = UsuarioIdLogueado;
+                NuevoModificado.fkusuario = Convert.ToString(ddlFKUsuarios.SelectedValue);
                 NuevoModificado.fkrecompensa = Convert.ToInt32(ddlFKRecompensas.SelectedValue);
 
                 // Se convierten los datos numericos de los textboxes
@@ -135,7 +158,7 @@ namespace WebApplication19.vista
 
                 // Se le pasa el id del canje
                 NuevoBorrado.id = Convert.ToInt32(TxtID.Text);
-                NuevoBorrado.fkusuario = UsuarioIdLogueado;
+                NuevoBorrado.fkusuario = Convert.ToString(ddlFKUsuarios.SelectedValue);
 
                 // Enviar canje a base
                 int resultado = CanjeLogica.BorrarCanjes(NuevoBorrado);
