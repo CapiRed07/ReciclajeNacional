@@ -193,4 +193,39 @@ namespace WebApplication19.logica
             }
             return CanjeConsulta;
         }
+        // Funcion para modificar canjes
+        public static int ModificarCanjes(clsCanje CanjeModificar)
+        {
+            int retorno = 0; // 0 sino modifica nada
+
+            try
+            {
+                using (SqlConnection Conn = modelo.DBconn.obtenerConexion())
+                {
+                    // Stored procedure
+                    SqlCommand cmd = new SqlCommand("ModificarCanje", Conn)
+                    {
+                        CommandType = CommandType.StoredProcedure
+                    };
+
+                    // Variables a modificar como parametros
+                    cmd.Parameters.Add(new SqlParameter("@CanjeID", CanjeModificar.id)); // Este es el identificador, no se cambia, busca
+                    cmd.Parameters.Add(new SqlParameter("@UsuarioID", CanjeModificar.fkusuario));
+                    cmd.Parameters.Add(new SqlParameter("@RecompensaID", CanjeModificar.fkrecompensa));
+                    cmd.Parameters.Add(new SqlParameter("@Fecha", CanjeModificar.fecha));
+                    cmd.Parameters.Add(new SqlParameter("@PuntosUtilizados", CanjeModificar.puntosutilizados));
+
+                    // Conexion abierta y ejecucion
+                    retorno = cmd.ExecuteNonQuery();
+
+                    return retorno; //Si modifica, se cambia a 1
+                }
+            }
+            catch (Exception Ex)
+            {
+                // Manejo de errores
+                retorno = 0;
+            }
+            return retorno;
+        }
     }
