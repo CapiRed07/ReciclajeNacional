@@ -80,7 +80,7 @@ namespace WebApplication19.logica
                                 horario = reader.GetString(4),
                             };
 
-                            // Pasamos los datos de cada material a la lista
+                            // Pasamos los datos de cada Centro a la lista
                             listaCentros.Add(Centros);
                         }
 
@@ -153,7 +153,7 @@ namespace WebApplication19.logica
                         CommandType = CommandType.StoredProcedure
                     };
 
-                    // Se le pasa ID como parametro para buscar el material a consultar
+                    // Se le pasa ID como parametro para buscar el Centro a consultar
                     cmd.Parameters.Add(new SqlParameter("@CentroID", CentroConsultado.id));
 
                     // Se llama al reader
@@ -188,6 +188,42 @@ namespace WebApplication19.logica
                 }
             }
             return CentroConsulta;
+        }
+        // Funcion para modificar centros, pensada para administradores.
+        public static int ModificarCentros(clsCentros CentroModificar)
+        {
+            int retorno = 0; // 0 sino modifica nada
+
+            try
+            {
+                using (SqlConnection Conn = modelo.DBconn.obtenerConexion())
+                {
+                    // Stored procedure
+                    SqlCommand cmd = new SqlCommand("ModificarCentro", Conn)
+                    {
+                        CommandType = CommandType.StoredProcedure
+                    };
+
+                    // Variables a modificar como parametros
+                    cmd.Parameters.Add(new SqlParameter("@CentroID", CentroModificar.id)); // Este es el identificador, no se cambia, busca
+                    cmd.Parameters.Add(new SqlParameter("@Nombre", CentroModificar.nombre));
+                    cmd.Parameters.Add(new SqlParameter("@Provincia", CentroModificar.provincia));
+                    cmd.Parameters.Add(new SqlParameter("@Direccion", CentroModificar.direccion));
+                    cmd.Parameters.Add(new SqlParameter("@Horario", CentroModificar.horario));
+
+                    // Conexion abierta y ejecucion
+                    Conn.Open();
+                    retorno = cmd.ExecuteNonQuery();
+
+                    return retorno; //Si modifica, se cambia a 1
+                }
+            }
+            catch (Exception Ex)
+            {
+                // Manejo de errores
+                retorno = 0;
+            }
+            return retorno;
         }
     }
 }
