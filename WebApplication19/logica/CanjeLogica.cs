@@ -51,4 +51,55 @@ namespace WebApplication19.logica
                 return retorno;
             }
         }
-}
+        // Procedimiento para obtener todas las filas
+        public static List<clsCanje> ObtenerCanje()
+        {
+            SqlConnection Conn = new SqlConnection();
+
+            // Se crea una lista para mantener a todos los canjes
+            List<clsCanje> listaCanje = new List<clsCanje>();
+            // Fuera del try para retornarla si hay error
+            try
+            {
+                using (Conn = modelo.DBconn.obtenerConexion())
+                {
+                    //Stored procedure
+                    SqlCommand cmd = new SqlCommand("ConsultarCanje", Conn)
+                    {
+                        CommandType = System.Data.CommandType.StoredProcedure // Tipo stored procedure
+                    };
+
+                    using (SqlDataReader reader = cmd.ExecuteReader())
+                    {
+                        // While en vez de if para leer todas las filas
+                        while (reader.Read())
+                        {
+                            clsCanje canjes = new clsCanje
+                            {
+                                id = reader.GetInt32(0),
+                                fkusuario = reader.GetInt32(1),
+                                fkrecompensa = reader.GetInt32(2),
+                                fecha = reader.GetDateTime(3),
+                                puntosutilizados = reader.GetInt32(4)
+                            };
+
+                            // Pasamos los datos de cada canje a la lista
+                            listaCanje.Add(canjes);
+                        }
+
+                        // Los enviamos para el despliegue
+                        return listaCanje;
+                    }
+                }
+            }
+            catch (SqlException Ex)
+            {
+                // Manejo de errores.
+                return listaCanje;
+            }
+            finally
+            {
+                Conn.Close();
+            }
+        }
+    }
