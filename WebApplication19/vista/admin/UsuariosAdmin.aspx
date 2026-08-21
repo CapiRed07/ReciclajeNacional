@@ -23,9 +23,21 @@
     <br />
     <asp:TextBox ID="TxtCorreo" runat="server"></asp:TextBox>
     <br />
+    <asp:Label ID="Lblpwd" runat="server" Text="Contraseña"></asp:Label>
+    <br />
+    <asp:TextBox ID="Txtpwd" runat="server"></asp:TextBox>
+    <br />
     <asp:Label ID="LblProvincia" runat="server" Text="Provincia"></asp:Label>
     <br />
-    <asp:DropDownList ID="ddlProvincia" runat="server"></asp:DropDownList>
+    <asp:dropdownlist id="ddlProvincia" runat="server">
+    <asp:ListItem>San Jose</asp:ListItem>
+    <asp:ListItem>Cartago</asp:ListItem>
+    <asp:ListItem>Heredia</asp:ListItem>
+    <asp:ListItem>Alajuela</asp:ListItem>
+    <asp:ListItem>Guanacaste</asp:ListItem>
+    <asp:ListItem>Puntarenas</asp:ListItem>
+    <asp:ListItem>Limón</asp:ListItem>
+    </asp:dropdownlist>
     <br />
     <asp:Label ID="LblRol" runat="server" Text="Rol"></asp:Label>
     <br />

@@ -121,7 +121,7 @@ namespace WebApplication19.logica
                 using (Conn = modelo.DBconn.obtenerConexion())
                 {
                     //Stored procedure
-                    SqlCommand cmd = new SqlCommand("ConsultarUsuario", Conn)
+                    SqlCommand cmd = new SqlCommand("ConsultarUsuarios", Conn)
                     {
                         CommandType = System.Data.CommandType.StoredProcedure // Tipo stored procedure
                     };
@@ -136,9 +136,9 @@ namespace WebApplication19.logica
                                 id = reader.GetInt32(0),
                                 nombre = reader.GetString(1),
                                 correo = reader.GetString(2),
-                                provincia = reader.GetString(3),
+                                provincia = reader.IsDBNull(3) ? null : reader.GetString(3),
                                 puntos = reader.GetInt32(4),
-                                rol = reader.GetString(6)
+                                rol = reader.GetString(5)
                             };
 
                             // Pasamos los datos de cada Usuario a la lista

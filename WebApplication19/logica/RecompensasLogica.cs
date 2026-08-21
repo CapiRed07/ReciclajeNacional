@@ -205,6 +205,7 @@ namespace WebApplication19.logica
 
                     // Variables a modificar como parametros
                     cmd.Parameters.Add(new SqlParameter("@RecompensaID", RecompensaModificar.id)); // Este es el identificador, no se cambia, busca
+                    cmd.Parameters.Add(new SqlParameter("@Nombre", RecompensaModificar.nombre));
                     cmd.Parameters.Add(new SqlParameter("@Descripcion", RecompensaModificar.descripcion));
                     cmd.Parameters.Add(new SqlParameter("@Puntos", RecompensaModificar.puntosnecesarios));
                     cmd.Parameters.Add(new SqlParameter("@Cantidad", RecompensaModificar.disponible));

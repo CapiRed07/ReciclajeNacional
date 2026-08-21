@@ -28,29 +28,6 @@ namespace WebApplication19.vista.admin
             GridCentros.DataSource = CentrosLogica.ObtenerCentros();
             GridCentros.DataBind();
         }
-
-        private void CargarComboProvincia()
-        {
-            try
-            {
-                var listaCentros = CentrosLogica.ObtenerCentros();
-
-                ddlProvincia.DataSource = listaCentros;
-
-                ddlProvincia.DataTextField = "provincia";
-
-                ddlProvincia.DataValueField = "provincia";
-
-                ddlProvincia.DataBind();
-
-                ddlProvincia.Items.Insert(0, new ListItem("-- Seleccione una provincia --", "0"));
-            }
-            catch (Exception ex)
-            {
-                //lblError.Text = "Ocurrió un error al cargar el catálogo de Centros.";
-                //lblError.Visible = true;
-            }
-        }
         protected void BtnRefrescar_Click(object sender, EventArgs e)
         {
             CargarCentros();
@@ -117,6 +94,7 @@ namespace WebApplication19.vista.admin
             {
                 // Manejo de error, formato de los datos
             }
+            CargarCentros();
         }
 
         protected void BtnEliminar_Click(object sender, EventArgs e)
@@ -145,6 +123,7 @@ namespace WebApplication19.vista.admin
             {
                 // Manejo de error, formato de los datos
             }
+            CargarCentros();
         }
 
         protected void BtnActualizar_Click(object sender, EventArgs e)
@@ -177,6 +156,7 @@ namespace WebApplication19.vista.admin
             {
                 // Manejo de error, formato de los datos
             }
+            CargarCentros();
         }
     }
 }

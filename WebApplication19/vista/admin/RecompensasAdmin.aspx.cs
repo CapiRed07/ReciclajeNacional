@@ -94,6 +94,7 @@ namespace WebApplication19.vista.admin
             {
                 // Manejo de error, formato de los datos
             }
+            CargarRecompensas();
         }
 
         protected void BtnEliminar_Click(object sender, EventArgs e)
@@ -122,6 +123,7 @@ namespace WebApplication19.vista.admin
             {
                 // Manejo de error, formato de los datos
             }
+            CargarRecompensas();
         }
 
         protected void BtnActualizar_Click(object sender, EventArgs e)
@@ -154,6 +156,7 @@ namespace WebApplication19.vista.admin
             {
                 // Manejo de error, formato de los datos
             }
+            CargarRecompensas();
         }
     }
 }

@@ -23,6 +23,7 @@ namespace WebApplication19.vista.admin
                 CargarRegistros();
                 CargarComboCentros();
                 CargarComboMateriales();
+                CargarComboUsuarios();
             }
         }
         private void CargarRegistros()
@@ -138,6 +139,7 @@ namespace WebApplication19.vista.admin
             {
                 // Manejo de error, formato de los datos
             }
+            CargarRegistros();
         }
         protected void BtnActualizar_Click(object sender, EventArgs e)
         {
@@ -173,6 +175,7 @@ namespace WebApplication19.vista.admin
             {
                 // Manejo de error, formato de los datos
             }
+            CargarRegistros();
         }
 
         protected void BtnBorrar_Click(object sender, EventArgs e)
@@ -202,6 +205,7 @@ namespace WebApplication19.vista.admin
             {
                 // Manejo de error, formato de los datos
             }
+            CargarRegistros();
         }
 
         protected void BtnConsultar_Click(object sender, EventArgs e)

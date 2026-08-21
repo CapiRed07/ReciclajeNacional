@@ -21,6 +21,7 @@ namespace WebApplication19.vista.admin
             {
                 CargarCanjes();
                 CargarComboRecompensas();
+                CargarComboUsuarios();
             }
         }
 
@@ -114,6 +115,7 @@ namespace WebApplication19.vista.admin
             {
                 // Manejo de error, formato de los datos
             }
+            CargarCanjes();
         }
         protected void BtnActualizar_Click(object sender, EventArgs e)
         {
@@ -147,6 +149,7 @@ namespace WebApplication19.vista.admin
             {
                 // Manejo de error, formato de los datos
             }
+            CargarCanjes();
         }
 
         protected void BtnBorrar_Click(object sender, EventArgs e)
@@ -176,6 +179,7 @@ namespace WebApplication19.vista.admin
             {
                 // Manejo de error, formato de los datos
             }
+            CargarCanjes();
         }
 
         protected void BtnConsultar_Click(object sender, EventArgs e)

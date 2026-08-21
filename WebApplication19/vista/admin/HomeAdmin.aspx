@@ -17,7 +17,7 @@
 
     <div class="cards">
 
-        <a href="~/vista/Centros.aspx" class="menu-card" runat="server">
+        <a href="~/vista/admin/CentrosAdmin.aspx" class="menu-card" runat="server">
             <img src="../Images/centroReciclaje.jpg"
                  class="card-image"
                  alt="Centros" />
@@ -25,7 +25,7 @@
             <p>Consulte por el centro más cercano</p>
         </a>
 
-        <a href="~/vista/Materiales.aspx" class="menu-card" runat="server">
+        <a href="~/vista/admin/MaterialesAdmin.aspx" class="menu-card" runat="server">
             <img src="../Images/materiales.jpg"
                  class="card-image"
                  alt="Materiales" />
@@ -33,7 +33,7 @@
             <p>Consulte por el material de reciclaje</p>
         </a>
 
-        <a href="~/vista/Registros.aspx" class="menu-card" runat="server">
+        <a href="~/vista/admin/RegistrosAdmin.aspx" class="menu-card" runat="server">
             <img src="../Images/registros.jpg"
                  class="card-image"
                  alt="Registros" />
@@ -41,7 +41,7 @@
             <p>Consulte y gestione sus registros de reciclaje</p>
         </a>
 
-        <a href="~/vista/Recompensas.aspx" class="menu-card" runat="server">
+        <a href="~/vista/admin/RecompensasAdmin.aspx" class="menu-card" runat="server">
             <img src="../Images/Rewards.jpg"
                  class="card-image"
                  alt="Recompensas" />
@@ -49,7 +49,7 @@
             <p>Consulte nuestras recompensas</p>
         </a>
 
-        <a href="~/vista/Canje.aspx" class="menu-card" runat="server">
+        <a href="~/vista/admin/CanjeAdmin.aspx" class="menu-card" runat="server">
             <img src="../Images/Canje.jpg"
                  class="card-image"
                  alt="Canjeo" />
@@ -57,7 +57,7 @@
             <p>Utilice sus puntos para canjear recompensas</p>
         </a>
 
-        <a href="~/vista/Usuarios.aspx" class="menu-card" runat="server">
+        <a href="~/vista/admin/UsuariosAdmin.aspx" class="menu-card" runat="server">
             <img src="../Images/usuarios.jpg"
                  class="card-image"
                  alt="Usuarios" />

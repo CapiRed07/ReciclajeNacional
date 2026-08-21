@@ -19,7 +19,7 @@ namespace WebApplication19.vista.admin
         {
             if (!IsPostBack)
             {
-                CargarUsuarioLogueado();
+                CargarUsuarios();
             }
         }
 
@@ -28,28 +28,7 @@ namespace WebApplication19.vista.admin
             GridUsuarios.DataSource = UsuariosLogica.ObtenerUsuarios();
             GridUsuarios.DataBind();
         }
-        private void CargarComboProvincia()
-        {
-            try
-            {
-                var listaUsuarios = UsuariosLogica.ObtenerUsuarios();
 
-                ddlProvincia.DataSource = listaUsuarios;
-
-                ddlProvincia.DataTextField = "provincia";
-
-                ddlProvincia.DataValueField = "provincia";
-
-                ddlProvincia.DataBind();
-
-                ddlProvincia.Items.Insert(0, new ListItem("-- Seleccione una provincia --", "0"));
-            }
-            catch (Exception ex)
-            {
-                //lblError.Text = "Ocurrió un error al cargar el catálogo de Usuarios.";
-                //lblError.Visible = true;
-            }
-}
         protected void BtnAgregar_Click(object sender, EventArgs e)
         {
             try
@@ -60,7 +39,8 @@ namespace WebApplication19.vista.admin
                 // Asignar valores
                 NuevoGuardado.nombre = Convert.ToString(TxtNombre.Text);
                 NuevoGuardado.correo = Convert.ToString(TxtCorreo.Text);
-                NuevoGuardado.provincia = Convert.ToString(ddlProvincia.SelectedValue);
+                NuevoGuardado.provincia = Convert.ToString(ddlProvincia.SelectedItem.Text);
+                NuevoGuardado.pwd = Convert.ToString(Txtpwd.Text);
                 NuevoGuardado.puntos = Convert.ToInt32(TxtPuntos.Text);
                 NuevoGuardado.rol = Convert.ToString(TxtRol.Text);
 
@@ -80,6 +60,7 @@ namespace WebApplication19.vista.admin
             {
                 // Manejo de error, formato de los datos
             }
+            CargarUsuarios();
         }
 
         protected void BtnEliminar_Click(object sender, EventArgs e)
@@ -108,6 +89,7 @@ namespace WebApplication19.vista.admin
             {
                 // Manejo de error, formato de los datos
             }
+            CargarUsuarios();
         }
 
         protected void BtnActualizar_Click(object sender, EventArgs e)
@@ -121,7 +103,8 @@ namespace WebApplication19.vista.admin
                 NuevoGuardado.id = Convert.ToInt32(TxtID.Text);
                 NuevoGuardado.nombre = Convert.ToString(TxtNombre.Text);
                 NuevoGuardado.correo = Convert.ToString(TxtCorreo.Text);
-                NuevoGuardado.provincia = Convert.ToString(ddlProvincia.SelectedValue);
+                NuevoGuardado.pwd = Convert.ToString(Txtpwd.Text);
+                NuevoGuardado.provincia = Convert.ToString(ddlProvincia.SelectedItem.Text);
                 NuevoGuardado.puntos = Convert.ToInt32(TxtPuntos.Text);
                 NuevoGuardado.rol = Convert.ToString(TxtRol.Text);
 
@@ -141,6 +124,7 @@ namespace WebApplication19.vista.admin
             {
                 // Manejo de error, formato de los datos
             }
+            CargarUsuarios();
         }
 
         protected void BtnConsultar_Click(object sender, EventArgs e)
