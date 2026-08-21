@@ -195,4 +195,42 @@ namespace WebApplication19.logica
             }
             return RegistroConsulta;
         }
+        // Funcion para modificar registros, pensada para administradores.
+        public static int ModificarRegistros(clsRegistros RegistroModificar)
+        {
+            int retorno = 0; // 0 sino modifica nada
+
+            try
+            {
+                using (SqlConnection Conn = modelo.DBconn.obtenerConexion())
+                {
+                    // Stored procedure
+                    SqlCommand cmd = new SqlCommand("ModificarRegistroReciclaje", Conn)
+                    {
+                        CommandType = CommandType.StoredProcedure
+                    };
+
+                    // Variables a modificar como parametros
+                    cmd.Parameters.Add(new SqlParameter("@RegistroID", RegistroModificar.id)); // Este es el identificador, no se cambia, busca
+                    cmd.Parameters.Add(new SqlParameter("@UsuarioID", RegistroModificar.fkusuario));
+                    cmd.Parameters.Add(new SqlParameter("@MaterialID", RegistroModificar.fkmaterial));
+                    cmd.Parameters.Add(new SqlParameter("@CentroID", RegistroModificar.fkcentro));
+                    cmd.Parameters.Add(new SqlParameter("@CantidadKg", RegistroModificar.cantidadkg));
+                    cmd.Parameters.Add(new SqlParameter("@Fecha", RegistroModificar.fecha));
+                    cmd.Parameters.Add(new SqlParameter("@PuntosObtenidos", RegistroModificar.puntosobtenidos));
+
+                    // Conexion abierta y ejecucion
+                    Conn.Open();
+                    retorno = cmd.ExecuteNonQuery();
+
+                    return retorno; //Si modifica, se cambia a 1
+                }
+            }
+            catch (Exception Ex)
+            {
+                // Manejo de errores
+                retorno = 0;
+            }
+            return retorno;
+        }
     }
