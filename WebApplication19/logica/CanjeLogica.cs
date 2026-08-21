@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Data;
 using System.Data.SqlClient;
 using System.Linq;
 using System.Web;
@@ -139,5 +140,57 @@ namespace WebApplication19.logica
                     Conn.Dispose();
                 }
             }
+        }
+        // Para consultar canjes especificos
+        public static clsCanje ConsultaCanjeporID(clsCanje CanjeConsultado)
+        {
+            clsCanje CanjeConsulta = null; // Sino encuentra, devuelve en nulo
+            SqlConnection Conn = new SqlConnection();
+
+            try
+            {
+                using (Conn = modelo.DBconn.obtenerConexion())
+                {
+                    // Stored procedure
+                    SqlCommand cmd = new SqlCommand("ConsultarCanjeporID", Conn)
+                    {
+                        CommandType = CommandType.StoredProcedure
+                    };
+
+                    // Se le pasa ID como parametro para buscar el canje a consultar
+                    cmd.Parameters.Add(new SqlParameter("@CanjeID", CanjeConsultado.id));
+
+                    // Se llama al reader
+                    using (SqlDataReader reader = cmd.ExecuteReader())
+                    {
+                        //If, solo buscamos uno en este caso.
+                        if (reader.Read())
+                        {
+                            CanjeConsulta = new clsCanjes
+                            {
+                                id = reader.GetInt32(0),
+                                fkusuario = reader.GetInt32(1),
+                                fkrecompensa = reader.GetInt32(2),
+                                fecha = reader.GetDateTime(3),
+                                puntosutilizados = reader.GetInt32(4)
+                            };
+                        }
+                    }
+                }
+            }
+            catch (Exception Ex)
+            {
+                // Manejo de errores
+                return null;
+            }
+            finally
+            {
+                if (Conn != null)
+                {
+                    Conn.Close();
+                    Conn.Dispose();
+                }
+            }
+            return CanjeConsulta;
         }
     }
