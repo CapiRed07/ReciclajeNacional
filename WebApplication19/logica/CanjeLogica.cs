@@ -164,7 +164,7 @@ namespace WebApplication19.logica
                         //If, solo buscamos uno en este caso.
                         if (reader.Read())
                         {
-                            CanjeConsulta = new clsCanjes
+                            CanjeConsulta = new clsCanje
                             {
                                 id = reader.GetInt32(0),
                                 fkusuario = reader.GetInt32(1),
@@ -226,7 +226,7 @@ namespace WebApplication19.logica
             }
             return retorno;
         }
-        public static int CalcularPuntosCanje(int idRecompensa, int cantidadUnidades)
+        public static int CalcularPuntosCanje(int idRecompensa)
         {
             // Se utiliza el fetcher para traer datos frescos de la base de datos
             List<clsRecompensas> listaRecompensas = RecompensasLogica.ObtenerRecompensas();
@@ -236,10 +236,9 @@ namespace WebApplication19.logica
 
             if (recompensaSeleccionada != null)
             {
-                // Se multiplica por la cantidad de unidades
                 int puntosPorUnidad = Convert.ToInt32(recompensaSeleccionada.puntosnecesarios);
 
-                return puntosPorUnidad * cantidadUnidades;
+                return puntosPorUnidad;
             }
 
             // Si por alguna razón no encuentra la recompensa, retorna 0 puntos para evitar inconsistencias

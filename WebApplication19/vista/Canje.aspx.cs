@@ -21,7 +21,7 @@ namespace WebApplication19.vista
             GridCanje.DataSource = CanjeLogica.ObtenerCanje();
             GridCanje.DataBind();
         }
-        private void CargarComboCanjes()
+        private void CargarComboRecompensas()
         {
             try
             {
@@ -59,13 +59,12 @@ namespace WebApplication19.vista
 
                 // Se convierten los valores de los ddl a enteros
                 NuevoGuardado.fkusuario = UsuarioIdLogueado;
-                NuevoGuardado.fkrecompensa = Convert.ToInt32(ddlFKRecompensa.SelectedValue);
+                NuevoGuardado.fkrecompensa = Convert.ToInt32(ddlFKRecompensas.SelectedValue);
 
                 // Se convierten los datos numericos de los textboxes
                 NuevoGuardado.fecha = Convert.ToDateTime(TxtFecha.Text);
-                NuevoGuardado.cantidad = Convert.ToInt32(TxtCant.Text);
                 // Los puntos obtenidos se deben calcular
-                NuevoGuardado.puntosutilizados = CanjeLogica.CalcularPuntosCanje(NuevoGuardado.fkrecompensa, NuevoGuardado.cantidad);
+                NuevoGuardado.puntosutilizados = CanjeLogica.CalcularPuntosCanje(NuevoGuardado.fkrecompensa);
 
                 // Se envia el canje a la base
                 int resultado = CanjeLogica.AgregarCanje(NuevoGuardado);
@@ -94,11 +93,10 @@ namespace WebApplication19.vista
                 // Se convierten los valores de los ddl a enteros
                 NuevoModificado.id = Convert.ToInt32(TxtID.Text);
                 NuevoModificado.fkusuario = UsuarioIdLogueado;
-                NuevoModificado.fkrecompensa = Convert.ToInt32(ddlFKRecompensa.SelectedValue);
+                NuevoModificado.fkrecompensa = Convert.ToInt32(ddlFKRecompensas.SelectedValue);
 
                 // Se convierten los datos numericos de los textboxes
                 NuevoModificado.fecha = Convert.ToDateTime(TxtFecha.Text);
-                NuevoModificado.cant = Convert.ToInt32(TxtCant.Text);
                 // Los puntos obtenidos se deben calcular
 
                 // Se envia el canje a la base
@@ -181,7 +179,7 @@ namespace WebApplication19.vista
 
         protected void BtnRefrescar_Click(object sender, EventArgs e)
         {
-            CargarCanje();
+            CargarCanjes();
             TxtID.Text = "";
         }
     }
