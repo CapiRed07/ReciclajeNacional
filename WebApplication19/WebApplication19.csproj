@@ -121,6 +121,7 @@
     <Compile Include="modelo\cls_tipo.cs" />
     <Compile Include="modelo\DBconn.cs" />
     <Compile Include="modelo\clsMateriales.cs" />
+    <Compile Include="modelo\clsRegistros.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="vista\Canje.aspx.cs">
       <DependentUpon>Canje.aspx</DependentUpon>
