@@ -8,6 +8,10 @@
     <div>
         <asp:GridView ID="GridRegistros" runat="server"></asp:GridView>
         <br />
+        <asp:Label ID="LblFKUsuarios" runat="server" Text="Usuarios"></asp:Label>
+        <br />
+        <asp:DropDownList ID="ddlFKUsuarios" runat="server"></asp:DropDownList>
+        <br />
         <asp:Label ID="LblFKMaterial" runat="server" Text="Materiales"></asp:Label>
         <br />
         <asp:DropDownList ID="ddlFKMaterial" runat="server"></asp:DropDownList>

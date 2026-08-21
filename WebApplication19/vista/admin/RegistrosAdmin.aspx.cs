@@ -31,6 +31,28 @@ namespace WebApplication19.vista
             GridRegistros.DataBind();
         }
 
+        private void CargarUsuarios()
+        {
+            try
+            {
+                var listaUsuarios = UsuariosLogica.ObtenerUsuarios();
+
+                ddlFKUsuarios.DataSource = listaUsuarios;
+
+                ddlFKUsuarios.DataTextField = "nombre";
+
+                ddlFKUsuarios.DataValueField = "id";
+
+                ddlFKUsuarios.DataBind();
+
+                ddlFKUsuarios.Items.Insert(0, new ListItem("-- Seleccione un usuario --", "0"));
+            }
+            catch (Exception ex)
+            {
+                //lblError.Text = "Ocurrió un error al cargar el catálogo de Usuarios.";
+                //lblError.Visible = true;
+            }
+        }
         private void CargarComboMateriales()
         {
             try
@@ -90,7 +112,7 @@ namespace WebApplication19.vista
                 clsRegistros NuevoGuardado = new clsRegistros();
 
                 // Se convierten los valores de los ddl a enteros
-                NuevoGuardado.fkusuario = UsuarioIdLogueado;
+                NuevoGuardado.fkusuario = Convert.ToInt32(ddlFKUsuarios.SelectedValue);
                 NuevoGuardado.fkmaterial = Convert.ToInt32(ddlFKMaterial.SelectedValue);
                 NuevoGuardado.fkcentro = Convert.ToInt32(ddlFKCentros.SelectedValue);
 
@@ -126,7 +148,7 @@ namespace WebApplication19.vista
 
                 // Se convierten los valores de los ddl a enteros
                 NuevoModificado.id = Convert.ToInt32(TxtID.Text);
-                NuevoModificado.fkusuario = UsuarioIdLogueado;
+                NuevoModificado.fkusuario = Convert.ToInt32(ddlFKUsuarios.SelectedValue);
                 NuevoModificado.fkmaterial = Convert.ToInt32(ddlFKMaterial.SelectedValue);
                 NuevoModificado.fkcentro = Convert.ToInt32(ddlFKCentros.SelectedValue);
 
@@ -162,7 +184,7 @@ namespace WebApplication19.vista
 
                 // Se le pasa el id del registro
                 NuevoBorrado.id = Convert.ToInt32(TxtID.Text);
-                NuevoBorrado.fkusuario = UsuarioIdLogueado;
+                NuevoBorrado.fkusuario = Convert.ToInt32(ddlFKUsuarios.SelectedValue);
 
                 // Enviar registro a base
                 int resultado = RegistrosLogica.BorrarRegistros(NuevoBorrado);
