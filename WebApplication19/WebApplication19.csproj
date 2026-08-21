@@ -115,6 +115,7 @@
     <Compile Include="logica\RecompensasLogica.cs" />
     <Compile Include="logica\RegistrosLogica.cs" />
     <Compile Include="logica\UsuariosLogica.cs" />
+    <Compile Include="modelo\clsCanje.cs" />
     <Compile Include="modelo\clsCentros.cs" />
     <Compile Include="modelo\clsRecompensas.cs" />
     <Compile Include="modelo\clsUsuarios.cs" />
