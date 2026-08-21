@@ -10,7 +10,9 @@ namespace WebApplication19.logica
 {
     public class RegistrosLogica
     {
-        // Para agregar registros nuevos al sistema, pensada para administradores
+        // Todos los metodos estan pensados para cualquier usuario
+        // Los usuarios sin permisos solo pueden modificar tablas
+        // Para agregar registros nuevos al sistema
         public static int AgregarRegistros(clsRegistros NuevoRegistro)
         {
             int retorno = 0;
@@ -50,7 +52,7 @@ namespace WebApplication19.logica
             return retorno;
         }
     }
-    // Procedimiento para obtener todas las filas, los usuarios pueden usarlo libremente
+    // Procedimiento para obtener todas las filas
         public static List<clsRegistros> ObtenerRegistros()
         {
             SqlConnection Conn = new SqlConnection();
@@ -103,7 +105,7 @@ namespace WebApplication19.logica
                 Conn.Close();
             }
         }
-        // Metodo para borrar registros, pensado para administradores
+        // Metodo para borrar registros
         public static int BorrarRegistros(clsRegistros Eliminado)
         {
             SqlConnection Conn = new SqlConnection();
@@ -141,7 +143,7 @@ namespace WebApplication19.logica
                 }
             }
         }
-        // Para consultar registros especificos, todos pueden acceder
+        // Para consultar registros especificos
         public static clsRegistros ConsultaRegistroporID(clsRegistros RegistroConsultado)
         {
             clsRegistros RegistroConsulta = null; // Sino encuentra, devuelve en nulo
@@ -195,7 +197,7 @@ namespace WebApplication19.logica
             }
             return RegistroConsulta;
         }
-        // Funcion para modificar registros, pensada para administradores.
+        // Funcion para modificar registros
         public static int ModificarRegistros(clsRegistros RegistroModificar)
         {
             int retorno = 0; // 0 sino modifica nada
