@@ -24,6 +24,15 @@ namespace WebApplication19.vista.admin
         protected global::System.Web.UI.WebControls.GridView GridUsuarios;
 
         /// <summary>
+        /// LblMensaje control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label LblMensaje;
+
+        /// <summary>
         /// LblID control.
         /// </summary>
         /// <remarks>

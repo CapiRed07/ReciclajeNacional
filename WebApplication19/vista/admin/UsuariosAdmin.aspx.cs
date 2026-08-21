@@ -49,16 +49,19 @@ namespace WebApplication19.vista.admin
 
                 if (resultado > 0)
                 {
-                    // mensajes de exito
+                    LblMensaje.Text = "Usuario guardado con exito.";
+                    LblMensaje.Visible = true;
                 }
                 else
                 {
-                    // mensaje de error
+                    LblMensaje.Text = "No se pudo guardar al usuario.";
+                    LblMensaje.Visible = true;
                 }
             }
             catch (Exception ex)
             {
-                // Manejo de error, formato de los datos
+                LblMensaje.Text = "Asegúrese de dar los datos de forma correcta (los ID son enteros, no use caracteres)";
+                LblMensaje.Visible = true;
             }
             CargarUsuarios();
         }
@@ -78,16 +81,24 @@ namespace WebApplication19.vista.admin
 
                 if (resultado > 0)
                 {
-                    // mensajes de exito
+                    LblMensaje.Text = "Usuario borrado con exito.";
+                    LblMensaje.Visible = true;
                 }
                 else
                 {
-                    // mensaje de error
+                    if (resultado == -2)
+                    {
+                        LblMensaje.Text = "No puede borrar al usuario, ya que tiene asignado algo, borre sus asignaciones primero";
+                        LblMensaje.Visible = true;
+                    }
+                    LblMensaje.Text = "No se pudo borrar al usuario.";
+                    LblMensaje.Visible = true;
                 }
             }
             catch (Exception ex)
             {
-                // Manejo de error, formato de los datos
+                LblMensaje.Text = "Asegúrese de dar los datos de forma correcta (los ID son enteros, no use caracteres)";
+                LblMensaje.Visible = true;
             }
             CargarUsuarios();
         }
@@ -113,16 +124,19 @@ namespace WebApplication19.vista.admin
 
                 if (resultado > 0)
                 {
-                    // mensajes de exito
+                    LblMensaje.Text = "Usuario modificado con exito.";
+                    LblMensaje.Visible = true;
                 }
                 else
                 {
-                    // mensaje de error
+                    LblMensaje.Text = "No se pudo modificar al usuario.";
+                    LblMensaje.Visible = true;
                 }
             }
             catch (Exception ex)
             {
-                // Manejo de error, formato de los datos
+                LblMensaje.Text = "Asegúrese de dar los datos de forma correcta (los ID son enteros, no use caracteres)";
+                LblMensaje.Visible = true;
             }
             CargarUsuarios();
         }
@@ -132,7 +146,7 @@ namespace WebApplication19.vista.admin
             if (!int.TryParse(TxtID.Text, out int parsedID))
             {
                 // Manejo de errores
-                // Agregar lbl
+                LblMensaje.Text = "Error, recuerde que los ID son números enteros";
                 return;
             }
 
@@ -154,7 +168,8 @@ namespace WebApplication19.vista.admin
                 // Limpiar el grid sino hay resultados
                 GridUsuarios.DataSource = null;
                 GridUsuarios.DataBind();
-                // lbl mensaje "no se encontro"
+                LblMensaje.Text = "El usuario no se encontró. Está seguro que existe ese ID?";
+                LblMensaje.Visible = true;
             }
         }
 
