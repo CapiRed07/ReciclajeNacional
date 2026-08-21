@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Data;
 using System.Data.SqlClient;
 using System.Linq;
 using System.Web;
@@ -52,7 +53,7 @@ namespace WebApplication19.logica
         {
             SqlConnection Conn = new SqlConnection();
 
-            // Se crea una lista para mantener a todos los recompensas
+            // Se crea una lista para mantener a todos las recompensas
             List<clsRecompensas> listaRecompensas = new List<clsRecompensas>();
             // Fuera del try para retornarla si hay error
             try
@@ -98,7 +99,7 @@ namespace WebApplication19.logica
                 Conn.Close();
             }
         }
-        // Metodo para borrar recompensaes, pensado para administradores
+        // Metodo para borrar recompensas, pensado para administradores
         public static int BorrarRecompensas(clsRecompensas Eliminado)
         {
             SqlConnection Conn = new SqlConnection();
@@ -135,6 +136,58 @@ namespace WebApplication19.logica
                     Conn.Dispose();
                 }
             }
+        }
+        // Para consultar recompensas especificos, todos pueden acceder
+        public static clsRecompensas ConsultaRecompensaporID(clsRecompensas RecompensaConsultado)
+        {
+            clsRecompensas RecompensaConsulta = null; // Sino encuentra, devuelve en nulo
+            SqlConnection Conn = new SqlConnection();
+
+            try
+            {
+                using (Conn = modelo.DBconn.obtenerConexion())
+                {
+                    // Stored procedure
+                    SqlCommand cmd = new SqlCommand("ConsultarRecompensaporID", Conn)
+                    {
+                        CommandType = CommandType.StoredProcedure
+                    };
+
+                    // Se le pasa ID como parametro para buscar la recompensa a consultar
+                    cmd.Parameters.Add(new SqlParameter("@RecompensaID", RecompensaConsultado.id));
+
+                    // Se llama al reader
+                    using (SqlDataReader reader = cmd.ExecuteReader())
+                    {
+                        //If, solo buscamos uno en este caso.
+                        if (reader.Read())
+                        {
+                            RecompensaConsulta = new clsRecompensas
+                            {
+                                id = reader.GetInt32(0),
+                                nombre = reader.GetString(1),
+                                descripcion = reader.GetString(2),
+                                puntosnecesarios = reader.GetInt32(3),
+                                disponible = reader.GetInt32(4)
+                            };
+                        }
+                    }
+                }
+            }
+            catch (Exception Ex)
+            {
+                // Manejo de errores
+                return null;
+            }
+            finally
+            {
+                if (Conn != null)
+                {
+                    Conn.Close();
+                    Conn.Dispose();
+                }
+            }
+            return RecompensaConsulta;
         }
     }
 }
