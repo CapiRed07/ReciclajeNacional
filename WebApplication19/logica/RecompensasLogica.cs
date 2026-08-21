@@ -98,5 +98,43 @@ namespace WebApplication19.logica
                 Conn.Close();
             }
         }
+        // Metodo para borrar recompensaes, pensado para administradores
+        public static int BorrarRecompensas(clsRecompensas Eliminado)
+        {
+            SqlConnection Conn = new SqlConnection();
+            int retorno = 0; // Se inicia en 0 en caso de no borrar nada.
+
+            try
+            {
+                using (Conn = modelo.DBconn.obtenerConexion())
+                {
+                    // Procedimiento almacenado
+                    SqlCommand cmd = new SqlCommand("EliminarRecompensa", Conn)
+                    {
+                        CommandType = System.Data.CommandType.StoredProcedure
+                    };
+                    // Parametro de id para encontrar el match
+                    cmd.Parameters.Add(new SqlParameter("@RecompensaID", Eliminado.id));
+
+                    Conn.Open();
+                    retorno = cmd.ExecuteNonQuery();
+                    // Si se logra, se asignan las filas afectadas, cambiando a 1
+                    return retorno;
+                }
+            }
+            catch (Exception Ex)
+            {
+                // Manejo de errores
+                return 0;
+            }
+            finally
+            {
+                if (Conn != null)
+                {
+                    Conn.Close();
+                    Conn.Dispose();
+                }
+            }
+        }
     }
 }
