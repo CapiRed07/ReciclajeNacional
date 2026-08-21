@@ -189,5 +189,40 @@ namespace WebApplication19.logica
             }
             return RecompensaConsulta;
         }
+        // Funcion para modificar recompensas, pensada para administradores.
+        public static int ModificarRecompensas(clsRecompensas RecompensaModificar)
+        {
+            int retorno = 0; // 0 sino modifica nada
+
+            try
+            {
+                using (SqlConnection Conn = modelo.DBconn.obtenerConexion())
+                {
+                    // Stored procedure
+                    SqlCommand cmd = new SqlCommand("ModificarRecompensa", Conn)
+                    {
+                        CommandType = CommandType.StoredProcedure
+                    };
+
+                    // Variables a modificar como parametros
+                    cmd.Parameters.Add(new SqlParameter("@RecompensaID", RecompensaModificar.id)); // Este es el identificador, no se cambia, busca
+                    cmd.Parameters.Add(new SqlParameter("@Descripcion", RecompensaModificar.descripcion));
+                    cmd.Parameters.Add(new SqlParameter("@Puntos", RecompensaModificar.puntosnecesarios));
+                    cmd.Parameters.Add(new SqlParameter("@Cantidad", RecompensaModificar.disponible));
+
+                    // Conexion abierta y ejecucion
+                    Conn.Open();
+                    retorno = cmd.ExecuteNonQuery();
+
+                    return retorno; //Si modifica, se cambia a 1
+                }
+            }
+            catch (Exception Ex)
+            {
+                // Manejo de errores
+                retorno = 0;
+            }
+            return retorno;
+        }
     }
 }
