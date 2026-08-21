@@ -11,7 +11,7 @@
 <div>
     <asp:GridView ID="GridUsuarios" runat="server"></asp:GridView>
     <br />
-    <asp:Label ID="LblMensaje" runat="server" visible="false" Text=""></asp:Label>
+    <asp:Label ID="LblMensaje" runat="server" Visible="false" Text=""></asp:Label>
     <br />
     <asp:Label ID="LblID" runat="server" Text="Ingrese un ID"></asp:Label>
     <br />
