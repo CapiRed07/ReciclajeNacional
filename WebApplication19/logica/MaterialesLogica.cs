@@ -92,8 +92,7 @@ namespace WebApplication19.logica
             finally
             {
                 Conn.Close();
-            }
-            return listaMateriales;
+            }  
         }
     }
 }
