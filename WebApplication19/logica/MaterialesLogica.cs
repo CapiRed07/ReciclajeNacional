@@ -150,7 +150,7 @@ namespace WebApplication19.logica
                     };
 
                     // Se le pasa ID como parametro para buscar el material a consultar
-                    cmd.Parameters.Add(new SqlParameter("MaterialID", MaterialConsultado.id));
+                    cmd.Parameters.Add(new SqlParameter("@MaterialID", MaterialConsultado.id));
 
                     // Se llama al reader
                     using (SqlDataReader reader = cmd.ExecuteReader())
