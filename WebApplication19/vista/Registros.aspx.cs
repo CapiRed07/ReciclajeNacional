@@ -25,7 +25,37 @@ namespace WebApplication19.vista
         }
         protected void BtnGuardar_Click(object sender, EventArgs e)
         {
+            try
+            {
+                // Se instancia el objeto
+                clsRegistros NuevoGuardado = new clsRegistros();
 
+                // Se convierten los valores de los ddl a enteros
+                NuevoGuardado.fkusuario = UsuarioIdLogueado;
+                NuevoGuardado.fkmaterial = Convert.ToInt32(ddlFKMaterial.SelectedValue);
+                NuevoGuardado.fkcentro = Convert.ToInt32(ddlFKCentros.SelectedValue);
+
+                // Se convierten los datos numericos de los textboxes
+                NuevoGuardado.cantidadkg = Convert.ToInt32(TxtKg.Text);
+                NuevoGuardado.fecha = TxtFecha.Text;
+                // Los puntos obtenidos se deben calcular
+
+                // Se envia el registro a la base
+                int resultado = RegistrosLogica.AgregarRegistros(NuevoGuardado);
+
+                if (resultado > 0)
+                {
+                    // mensajes de exito
+                }
+                else
+                {
+                    // mensaje de error
+                }
+            }
+            catch (Exception ex)
+            {
+                // Manejo de error, formato de los datos
+            }
         }
         protected void BtnActualizar_Click(object sender, EventArgs e)
         {
