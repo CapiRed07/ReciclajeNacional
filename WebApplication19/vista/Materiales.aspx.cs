@@ -27,25 +27,37 @@ namespace WebApplication19.vista
         protected void BtnRefrescar_Click(object sender, EventArgs e)
         {
             CargarMateriales();
+            TxtID.Text = "";
         }
 
         protected void BtnConsultar_Click(object sender, EventArgs e)
         {
-            int parsedID; // Variable temporal para convertir a integer
-            clsMateriales NuevaConsulta = new clsMateriales();
-            if (int.TryParse(TxtID.Text, out parsedID))
+            if (!int.TryParse(TxtID.Text, out int parsedID))
             {
-                // Si logra assignar, se va al objeto
-                NuevaConsulta.id = parsedID;
-                clsMateriales Consulta = MaterialesLogica.ConsultaMaterialporID(NuevaConsulta);
-                GridMateriales.DataSource = Consulta;
+                // Manejo de errores
+                // Agregar lbl
+                return;
+            }
+
+            // Inicializacion limpia con objeto id
+            clsMateriales NuevaConsulta = new clsMateriales { id = parsedID};
+            
+            // Consulta a la capa de logica
+            clsMateriales Consulta = MaterialesLogica.ConsultaMaterialporID(NuevaConsulta);
+
+            // Validacion de datos y asignacion al GridView
+            if(Consulta != null)
+            {
+                // Lista para que gridview lo pueda usar
+                GridMateriales.DataSource = new List<clsMateriales> { Consulta };
                 GridMateriales.DataBind();
             }
             else
             {
-                // Manejo de errores
-                // Escribir Logica
-                return;
+                // Limpiar el grid sino hay resultados
+                GridMateriales.DataSource = null;
+                GridMateriales.DataBind();
+                // lbl mensaje "no se encontro"
             }
         }
     }
