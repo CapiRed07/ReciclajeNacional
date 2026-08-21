@@ -47,7 +47,6 @@ namespace WebApplication19.logica
             }
             return retorno;
         }
-    }
     // Procedimiento para obtener todas las filas, los usuarios pueden usarlo libremente
         public static List<clsRecompensas> ObtenerRecompensas()
         {
