@@ -60,6 +60,24 @@ namespace WebApplication19.vista
         protected global::System.Web.UI.WebControls.TextBox TxtID;
 
         /// <summary>
+        /// LblCant control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label LblCant;
+
+        /// <summary>
+        /// TxtCant control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.TextBox TxtCant;
+
+        /// <summary>
         /// LblFecha control.
         /// </summary>
         /// <remarks>

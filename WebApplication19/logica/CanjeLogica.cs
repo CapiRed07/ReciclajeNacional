@@ -32,6 +32,7 @@ namespace WebApplication19.logica
                      cmd.Parameters.Add(new SqlParameter("@RecompensaID", NuevoCanje.fkrecompensa));
                      cmd.Parameters.Add(new SqlParameter("@Fecha", NuevoCanje.fecha));
                      cmd.Parameters.Add(new SqlParameter("@PuntosUtilizados", NuevoCanje.puntosutilizados));
+                     cmd.Parameters.Add(new SqlParameter("@Cantidad", NuevoCanje.cantidad));
 
                      //Devuelve el numero de filas afectadas, 1 si tuvo exito
                      retorno = cmd.ExecuteNonQuery();
@@ -212,6 +213,7 @@ namespace WebApplication19.logica
                     cmd.Parameters.Add(new SqlParameter("@RecompensaID", CanjeModificar.fkrecompensa));
                     cmd.Parameters.Add(new SqlParameter("@Fecha", CanjeModificar.fecha));
                     cmd.Parameters.Add(new SqlParameter("@PuntosUtilizados", CanjeModificar.puntosutilizados));
+                    cmd.Parameters.Add(new SqlParameter("@Cantidad", CanjeModificar.cantidad));
 
                     // Conexion abierta y ejecucion
                     retorno = cmd.ExecuteNonQuery();
@@ -226,7 +228,7 @@ namespace WebApplication19.logica
             }
             return retorno;
         }
-        public static int CalcularPuntosCanje(int idRecompensa)
+        public static int CalcularPuntosCanje(int idRecompensa, int Cantidad)
         {
             // Se utiliza el fetcher para traer datos frescos de la base de datos
             List<clsRecompensas> listaRecompensas = RecompensasLogica.ObtenerRecompensas();
@@ -238,7 +240,7 @@ namespace WebApplication19.logica
             {
                 int puntosPorUnidad = Convert.ToInt32(recompensaSeleccionada.puntosnecesarios);
 
-                return puntosPorUnidad;
+                return puntosPorUnidad * Cantidad;
             }
 
             // Si por alguna razón no encuentra la recompensa, retorna 0 puntos para evitar inconsistencias

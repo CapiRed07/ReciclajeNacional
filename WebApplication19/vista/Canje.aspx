@@ -16,6 +16,10 @@
         <br />
         <asp:TextBox ID="TxtID" runat="server"></asp:TextBox>
         <br />
+        <asp:Label ID="LblCant" runat="server" Text="Cantidad"></asp:Label>
+        <br />
+        <asp:TextBox ID="TxtCant" runat="server"></asp:TextBox>
+        <br />
         <asp:Label ID="LblFecha" runat="server" Text="Fecha"></asp:Label>
         <br />
         <asp:TextBox ID="TxtFecha" runat="server" TextMode="date"></asp:TextBox>
