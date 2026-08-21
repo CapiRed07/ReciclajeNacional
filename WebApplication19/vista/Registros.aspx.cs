@@ -94,7 +94,30 @@ namespace WebApplication19.vista
 
         protected void BtnBorrar_Click(object sender, EventArgs e)
         {
+            try
+            {
+                // Instancia del objeto
+                clsRegistros NuevoBorrado = new clsRegistros();
 
+                // Se le pasa el id del registro
+                NuevoBorrado.id = Convert.ToInt32(TxtID.Text);
+
+                // Enviar registro a base
+                int resultado = RegistrosLogica.BorrarRegistros(NuevoBorrado);
+
+                if (resultado > 0)
+                {
+                    // mensajes de exito
+                }
+                else
+                {
+                    // mensaje de error
+                }
+            }
+            catch (Exception ex)
+            {
+                // Manejo de error, formato de los datos
+            }
         }
 
         protected void BtnConsultar_Click(object sender, EventArgs e)
