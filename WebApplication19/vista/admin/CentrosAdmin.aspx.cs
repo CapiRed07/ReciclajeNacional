@@ -29,6 +29,28 @@ namespace WebApplication19.vista
             GridCentros.DataBind();
         }
 
+        private void CargarComboProvincia()
+        {
+            try
+            {
+                var listaCentros = CentrosLogica.ObtenerCentros();
+
+                ddlProvincia.DataSource = listaCentros;
+
+                ddlProvincia.DataTextField = "provincia";
+
+                ddlProvincia.DataValueField = "provincia";
+
+                ddlProvincia.DataBind();
+
+                ddlProvincia.Items.Insert(0, new ListItem("-- Seleccione una provincia --", "0"));
+            }
+            catch (Exception ex)
+            {
+                //lblError.Text = "Ocurrió un error al cargar el catálogo de Centros.";
+                //lblError.Visible = true;
+            }
+        }
         protected void BtnRefrescar_Click(object sender, EventArgs e)
         {
             CargarCentros();
@@ -63,6 +85,97 @@ namespace WebApplication19.vista
                 GridCentros.DataSource = null;
                 GridCentros.DataBind();
                 // lbl mensaje "no se encontro"
+            }
+        }
+
+        protected void BtnAgregar_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                // Se instancia el objeto
+                clsCentros NuevoGuardado = new clsCentros();
+
+                // Asignar valores
+                NuevoGuardado.nombre = Convert.ToString(TxtNombre.Text);
+                NuevoGuardado.provincia = Convert.ToString(ddlProvincia.SelectedValue);
+                NuevoGuardado.direccion = Convert.ToInt32(TxtDireccion.Text);
+                NuevoGuardado.horario = Convert.ToString(TxtHorario.Text);
+
+                // Se envia el registro a la base
+                int resultado = CentrosLogica.AgregarCentros(NuevoGuardado);
+
+                if (resultado > 0)
+                {
+                    // mensajes de exito
+                }
+                else
+                {
+                    // mensaje de error
+                }
+            }
+            catch (Exception ex)
+            {
+                // Manejo de error, formato de los datos
+            }
+        }
+
+        protected void BtnEliminar_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                // Instancia del objeto
+                clsCentros NuevoBorrado = new clsCentros();
+
+                // Se le pasa el id del registro
+                NuevoBorrado.id = Convert.ToInt32(TxtID.Text);
+
+                // Enviar registro a base
+                int resultado = CentrosLogica.BorrarCentros(NuevoBorrado);
+
+                if (resultado > 0)
+                {
+                    // mensajes de exito
+                }
+                else
+                {
+                    // mensaje de error
+                }
+            }
+            catch (Exception ex)
+            {
+                // Manejo de error, formato de los datos
+            }
+        }
+
+        protected void BtnActualizar_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                // Se instancia el objeto
+                clsCentros NuevoGuardado = new clsCentros();
+
+                // Se convierten los valores de los ddl a enteros
+                NuevoGuardado.id = Convert.ToInt32(TxtID.Text);
+                NuevoGuardado.nombre = Convert.ToString(TxtNombre.Text);
+                NuevoGuardado.provincia = Convert.ToString(ddlProvincia.SelectedValue);
+                NuevoGuardado.direccion = Convert.ToInt32(TxtDireccion.Text);
+                NuevoGuardado.horario = Convert.ToString(TxtHorario.Text);
+
+                // Se envia el registro a la base
+                int resultado = CentrosLogica.ModificarCentros(NuevoGuardado);
+
+                if (resultado > 0)
+                {
+                    // mensajes de exito
+                }
+                else
+                {
+                    // mensaje de error
+                }
+            }
+            catch (Exception ex)
+            {
+                // Manejo de error, formato de los datos
             }
         }
     }
